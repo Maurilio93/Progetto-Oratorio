@@ -6,23 +6,19 @@ export function LandingPage() {
 
     return (
         <header className="bg-blue-400">
-            <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-screen-xl ml-4">
                 <div className="flex h-16 items-center justify-between">
-                    {/* Logo e Titolo */}
-                    <div className="md:flex md:items-center md:gap-2">
-                        <a className="block text-teal-600" href="#">
-                            <span className="sr-only">Home</span>
-                            <img
-                                src="/images/images.jpeg"
-                                alt="Logo"
-                                className="h-14 rounded-xl"
-                            />
-                        </a>
+                    {/* Logo e Titolo allineati a sinistra */}
+                    <div className="flex items-center gap-4">
+                        <img
+                            src="/images/images.jpeg"
+                            alt="Logo"
+                            className="h-14 rounded-xl"
+                        />
                         <h4 className="text-white font-semibold">Sito Ufficiale Oratorio San Vincenzo</h4>
                     </div>
-
                     {/* Menu di navigazione */}
-                    <div className="hidden md:block">
+                    <div className="hidden md:block ml-12">
                         <nav aria-label="Global">
                             <ul className="flex gap-12 text-sm pr-40">
                                 <li>
@@ -56,10 +52,10 @@ export function LandingPage() {
 
                     {/* Icone Social */}
                     <div className="flex items-center gap-4">
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-white">
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300">
                             <FaFacebook size={24} />
                         </a>
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-white">
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300">
                             <FaInstagram size={24} />
                         </a>
                     </div>
