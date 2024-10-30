@@ -4,9 +4,9 @@ export function Classifica() {
     const navigate = useNavigate();
 
     return (
-        <div className="bg-blue-400 min-h-screen flex flex-col items-center">
+        <div className="bg-blue-400 min-h-screen flex flex-col items-center px-4">
             {/* Contenitore per pulsante e titolo */}
-            <div className="flex items-center justify-between w-full max-w-4xl mt-4 px-8">
+            <div className="flex items-center justify-between w-full max-w-4xl mt-4 mb-4 px-4 md:px-8">
                 <button
                     onClick={() => navigate("/")}
                     type="button"
@@ -14,20 +14,18 @@ export function Classifica() {
                 >
                     Indietro
                 </button>
-                <h1 className="text-2xl font-bold text-black text-center flex-grow pr-8">
+                <h1 className="text-2xl font-bold text-black text-center flex-grow pr-8 md:pr-0">
                     CLASSIFICA
                 </h1>
             </div>
 
             {/* Widget Classifica */}
-            <div className="flex justify-center items-center bg-white p-4 rounded-lg shadow-md mt-6">
+            <div className="flex justify-center items-center bg-white p-4 rounded-lg shadow-md mt-6 w-full max-w-4xl">
                 <iframe
                     src="https://www.tuttocampo.it/WidgetV2/Classifica/30018696-716a-4194-a931-e7547a88ff56"
-                    width="800"
-                    height="600"
                     loading="lazy"
                     title="Classifica"
-                    className="rounded-lg"
+                    className="w-full sm:w-[450px] md:w-[600px] lg:w-[800px] h-[500px] sm:h-[600px] md:h-[700px]"
                 ></iframe>
             </div>
         </div>

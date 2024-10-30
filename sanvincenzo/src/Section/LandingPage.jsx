@@ -12,78 +12,81 @@ import { Button } from "../MyComponents/Section/Button";
 import { useNavigate } from "react-router-dom";
 
 export function LandingPage() {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isSocietaDropdownOpen, setIsSocietaDropdownOpen] = useState(false);
     const [isSquadreDropdownOpen, setIsSquadreDropdownOpen] = useState(false);
     const navigate = useNavigate();
+
+    let societaTimeout, squadreTimeout;
+
+    const handleMouseEnterSocieta = () => {
+        clearTimeout(societaTimeout); // Evita di chiudere il menu se si entra subito
+        setIsSocietaDropdownOpen(true);
+    };
+
+    const handleMouseLeaveSocieta = () => {
+        societaTimeout = setTimeout(() => {
+            setIsSocietaDropdownOpen(false);
+        }, 300); // Tempo di ritardo per chiudere il menu
+    };
+
+    const handleMouseEnterSquadre = () => {
+        clearTimeout(squadreTimeout);
+        setIsSquadreDropdownOpen(true);
+    };
+
+    const handleMouseLeaveSquadre = () => {
+        squadreTimeout = setTimeout(() => {
+            setIsSquadreDropdownOpen(false);
+        }, 300);
+    };
 
     return (
         <div className="bg-white">
             <header className="bg-blue-400 fixed top-0 left-0 right-0 z-50">
                 <div className="max-w-screen-xl ml-4">
                     <div className="flex h-16 items-center justify-between">
-                        {/* Logo e Titolo allineati a sinistra */}
                         <div className="flex items-center gap-2">
-                            <img
-                                src="/images/images.jpeg"
-                                alt="Logo"
-                                className="h-14 rounded-xl"
-                            />
-                            <h4 className="text-white font-semibold">
-                                Oratorio San Vincenzo
-                            </h4>
+                            <img src="/images/images.jpeg" alt="Logo" className="h-14 rounded-xl" />
+                            <h4 className="text-white font-semibold">Oratorio San Vincenzo</h4>
                         </div>
-                        {/* Menu di navigazione */}
                         <div className="hidden md:block ml-12">
                             <nav aria-label="Global">
                                 <ul className="flex gap-16 text-sm pr-24">
-                                    <li className="relative">
+                                    <li
+                                        className="relative"
+                                        onMouseEnter={handleMouseEnterSocieta}
+                                        onMouseLeave={handleMouseLeaveSocieta}
+                                    >
                                         <button
-                                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                                             className="text-black font-bold transition hover:text-white rounded-lg text-center inline-flex items-center"
                                             type="button"
                                         >
                                             SOCIETÀ
-                                            <svg
-                                                className="w-2.5 h-2.5 ml-1"
-                                                aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="none"
-                                                viewBox="0 0 10 6"
-                                            >
-                                                <path
-                                                    stroke="currentColor"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth="2"
-                                                    d="m1 1 4 4 4-4"
-                                                />
+                                            <svg className="w-2.5 h-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
                                             </svg>
                                         </button>
-                                        {/* Dropdown menu per SOCIETÀ */}
-                                        {isDropdownOpen && (
+                                        {isSocietaDropdownOpen && (
                                             <div
                                                 className="absolute z-10 bg-white divide-y font-bold divide-gray-100 rounded-lg shadow w-44 left-1/2 transform -translate-x-1/2 mt-2"
+                                                onMouseEnter={handleMouseEnterSocieta}
+                                                onMouseLeave={handleMouseLeaveSocieta}
                                             >
                                                 <ul className="py-2 text-sm text-blue-400">
-                                                    <li>
-                                                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                                                            DIRIGENZA
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                                                            LA NOSTRA STORIA
-                                                        </a>
-                                                    </li>
+                                                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">DIRIGENZA</a></li>
+                                                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">LA NOSTRA STORIA</a></li>
                                                 </ul>
                                             </div>
                                         )}
                                     </li>
                                     <li><a className="text-black font-bold transition hover:text-white" href="#">PARTNER</a></li>
                                     <li><a className="text-black font-bold transition hover:text-white" href="#">GALLERIA</a></li>
-                                    <li className="relative">
+                                    <li
+                                        className="relative"
+                                        onMouseEnter={handleMouseEnterSquadre}
+                                        onMouseLeave={handleMouseLeaveSquadre}
+                                    >
                                         <button
-                                            onClick={() => setIsSquadreDropdownOpen(!isSquadreDropdownOpen)}
                                             className="text-black font-bold transition hover:text-white rounded-lg text-center inline-flex items-center"
                                             type="button"
                                         >
@@ -95,6 +98,8 @@ export function LandingPage() {
                                         {isSquadreDropdownOpen && (
                                             <div
                                                 className="absolute z-10 bg-white divide-y font-bold divide-gray-100 rounded-lg shadow w-44 left-1/2 transform -translate-x-1/2 mt-2"
+                                                onMouseEnter={handleMouseEnterSquadre}
+                                                onMouseLeave={handleMouseLeaveSquadre}
                                             >
                                                 <ul className="py-2 text-sm text-blue-400">
                                                     <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">PRIMA SQUADRA</a></li>
@@ -107,7 +112,6 @@ export function LandingPage() {
                                 </ul>
                             </nav>
                         </div>
-                        {/* Icone Social */}
                         <div className="flex items-center gap-4">
                             <a href="https://www.facebook.com/oratoriosanvincenzopalermo/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300"><FaFacebook size={28} /></a>
                             <a href="https://www.instagram.com/oratorio_sanvincenzoc5/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300"><FaInstagram size={28} /></a>
@@ -116,6 +120,9 @@ export function LandingPage() {
                     </div>
                 </div>
             </header>
+
+
+
             <div className="flex flex-col justify-center items-center mt-16">
                 <Carousel transition={{ duration: 2 }} className="rounded-l h-screen w-full">
                     <img src="images/WhatsApp Image 2024-10-29 at 16.37.06.jpeg" alt="image 1" className="h-full w-full object-cover" />
@@ -128,11 +135,7 @@ export function LandingPage() {
             <div className="flex justify-center items-center gap-6 mt-6">
                 <Card className="w-96 animate-pulse">
                     <CardHeader shadow={false} floated={false} className="relative grid h-56 place-items-center bg-gray-300">
-                        <iframe src='https://www.tuttocampo.it/WidgetV2/Partita/30018696-716a-4194-a931-e7547a88ff56'
-                            width='500'
-                            height='350'
-                            loading='lazy'>
-                        </iframe>
+                        <iframe src='https://www.tuttocampo.it/WidgetV2/Partita/30018696-716a-4194-a931-e7547a88ff56' width='500' height='350' loading='lazy'></iframe>
                     </CardHeader>
                     <CardBody>
                         <Typography as="div" variant="h1" className="mb-4 h-3 w-56 rounded-full bg-gray-300">&nbsp;</Typography>
