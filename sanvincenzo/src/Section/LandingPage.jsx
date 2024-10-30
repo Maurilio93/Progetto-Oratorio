@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { Carousel } from "@material-tailwind/react";
 import {
     Card,
@@ -7,11 +7,13 @@ import {
     CardBody,
     CardFooter,
     Typography,
-    Button,
 } from "@material-tailwind/react";
+import { Button } from '../MyComponents/Section/Button';
+import { useNavigate } from 'react-router-dom';
 
 export function LandingPage() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate();
 
 
     return (
@@ -26,36 +28,38 @@ export function LandingPage() {
                                 alt="Logo"
                                 className="h-14 rounded-xl"
                             />
-                            <h4 className="text-white font-semibold">Sito Ufficiale Oratorio San Vincenzo</h4>
+                            <h4 className="text-white font-semibold">Oratorio San Vincenzo</h4>
                         </div>
                         {/* Menu di navigazione */}
                         <div className="hidden md:block ml-12">
                             <nav aria-label="Global">
-                                <ul className="flex gap-12 text-sm pr-40">
+                                <ul className="flex gap-16 text-sm pr-24">
                                     <li>
                                         <a className="text-black font-bold transition hover:text-white" href="#">
-                                            Società
+                                            SOCIETÀ
                                         </a>
                                     </li>
                                     <li>
                                         <a className="text-black font-bold transition hover:text-white" href="#">
-                                            Calendario
+                                            PARTNER
                                         </a>
                                     </li>
                                     <li>
                                         <a className="text-black font-bold transition hover:text-white" href="#">
-                                            Galleria
+                                            GALLERIA
                                         </a>
                                     </li>
                                     <li>
                                         <a className="text-black font-bold transition hover:text-white" href="#">
-                                            News
+                                            NEWS
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="text-black font-bold transition hover:text-white" href="#">
-                                            Contatti
-                                        </a>
+                                        <button
+                                            onClick={() => navigate('/contatti')}
+                                            className="text-black font-bold transition hover:text-white" href="#">
+                                            CONTATTI
+                                        </button>
                                     </li>
                                 </ul>
                             </nav>
@@ -63,11 +67,14 @@ export function LandingPage() {
 
                         {/* Icone Social */}
                         <div className="flex items-center gap-4">
-                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300">
-                                <FaFacebook size={24} />
+                            <a href="https://www.facebook.com/oratoriosanvincenzopalermo/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300">
+                                <FaFacebook size={28} />
                             </a>
-                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300">
-                                <FaInstagram size={24} />
+                            <a href="https://www.instagram.com/oratorio_sanvincenzoc5/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300">
+                                <FaInstagram size={28} />
+                            </a>
+                            <a href="https://www.youtube.com/@OratorioSanVincenzoC5" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300">
+                                <FaYoutube size={28} />
                             </a>
                         </div>
 
@@ -97,28 +104,28 @@ export function LandingPage() {
                                     <nav aria-label="Mobile menu">
                                         <ul className="flex flex-col items-center gap-4 p-4">
                                             <li>
-                                                <a className="text-black font-bold transition hover:text-gray-500/75" href="#">
-                                                    Società
+                                                <a className="text-black font-bold transition hover:text-white" href="#">
+                                                    SOCIETÀ
                                                 </a>
                                             </li>
                                             <li>
-                                                <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
-                                                    Calendario
+                                                <a className="text-black font-bold transition hover:text-white" href="#">
+                                                    PARTNER
                                                 </a>
                                             </li>
                                             <li>
-                                                <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
-                                                    Galleria
+                                                <a className="text-black font-bold transition hover:text-white" href="#">
+                                                    GALLERIA
                                                 </a>
                                             </li>
                                             <li>
-                                                <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
-                                                    News
+                                                <a className="text-black font-bold transition hover:text-white" href="#">
+                                                    NEWS
                                                 </a>
                                             </li>
                                             <li>
-                                                <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
-                                                    Contatti
+                                                <a className="text-black font-bold hover:text-white" href="#">
+                                                    CONTATTI
                                                 </a>
                                             </li>
                                         </ul>
@@ -129,68 +136,10 @@ export function LandingPage() {
                     </div>
                 </div>
             </header>
-            <div className="flex flex-col items-center my-6">
-                <p className="text-center text-xl font-semibold my-6">ULTIME NOTIZIE</p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-                    <Card className="w-64 h-64 mx-auto">
-                        <CardHeader color="blue-gray" className="relative h-32">
-                            <img
-                                src="images/WhatsApp Image 2024-10-29 at 16.08.28.jpeg"
-                                alt="card-image"
-                                className="w-full h-full object-cover"
-                            />
-                        </CardHeader>
-                        <CardBody className="overflow-hidden">
-                            <Typography variant="h5" color="blue-gray" className="text-center text-sm">
-                                Ultimo Incontro
-                            </Typography>
-                        </CardBody>
-                        <CardFooter className="pt-0 text-center">
-                            <Button size="sm">Clicca qui</Button>
-                        </CardFooter>
-                    </Card>
-
-                    <Card className="w-64 h-64 mx-auto">
-                        <CardHeader color="blue-gray" className="relative h-32">
-                            <img
-                                src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-                                alt="card-image"
-                                className="w-full h-full object-cover"
-                            />
-                        </CardHeader>
-                        <CardBody className="overflow-hidden">
-                            <Typography variant="h5" color="blue-gray" className="text-center text-sm">
-                                UI/UX Design Trends
-                            </Typography>
-                        </CardBody>
-                        <CardFooter className="pt-0 text-center">
-                            <Button size="sm">Read More</Button>
-                        </CardFooter>
-                    </Card>
-
-                    <Card className="w-64 h-64 mx-auto">
-                        <CardHeader color="blue-gray" className="relative h-32">
-                            <img
-                                src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-                                alt="card-image"
-                                className="w-full h-full object-cover"
-                            />
-                        </CardHeader>
-                        <CardBody className="overflow-hidden">
-                            <Typography variant="h5" color="blue-gray" className="text-center text-sm">
-                                Product Updates
-                            </Typography>
-                        </CardBody>
-                        <CardFooter className="pt-0 text-center">
-                            <Button size="sm">Read More</Button>
-                        </CardFooter>
-                    </Card>
-                </div>
-            </div>
-            <div className='flex flex-col justify-center items-center my-14'>
-                <Carousel transition={{ duration: 2 }} className="rounded-l h-[60%] w-[35%]">
+            <div className='flex flex-col justify-center items-center'>
+                <Carousel transition={{ duration: 2 }} className="rounded-l h-screen">
                     <img
-                        src="images/3.png"
+                        src="images\WhatsApp Image 2024-10-29 at 16.37.06.jpeg"
                         alt="image 1"
                         className="h-full w-full object-cover"
                     />
@@ -200,11 +149,84 @@ export function LandingPage() {
                         className="h-full w-full object-cover"
                     />
                     <img
-                        src="images/1.png"
+                        src="images\1.png"
                         alt="image 3"
                         className="h-full w-full object-cover"
                     />
                 </Carousel>
+            </div>
+            <div className="flex flex-col items-center my-6">
+                <p className="text-center text-xl font-semibold my-6">ULTIME NOTIZIE</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <Card className="w-64 h-64 mx-auto">
+                        <CardHeader color="blue-gray" className="relative h-32">
+                            <img
+                                src="images/traffico-web.png"
+                                alt="card-image"
+                                className="w-full h-full object-cover"
+                            />
+                        </CardHeader>
+                        <CardBody className="overflow-hidden">
+                            <Typography variant="h5" color="blue-gray" className="text-center text-sm">
+                                CLASSIFICA AGGIORNATA
+                            </Typography>
+                        </CardBody>
+                        <CardFooter className="pt-0 text-center">
+                            <Button
+                                type='submit'
+                                text='Clicca qui'
+                                onClick={() => window.open("https://www.tuttocampo.it/Sicilia/CalcioA5SerieC2/GironeASerieC2/Classifica", "_blank")}
+                            >
+                            </Button>
+                        </CardFooter>
+                    </Card>
+
+                    <Card className="w-64 h-64 mx-auto">
+                        <CardHeader color="blue-gray" className="relative h-32">
+                            <img
+                                src="images\topscorer-default-site-img.jpg"
+                                alt="card-image"
+                                className="w-full h-full object-cover"
+                            />
+                        </CardHeader>
+                        <CardBody className="overflow-hidden">
+                            <Typography variant="h5" color="blue-gray" className="text-center text-sm">
+                                CLASSIFICA MARCATORI
+                            </Typography>
+                        </CardBody>
+                        <CardFooter className="pt-0 text-center">
+                            <Button
+                                type='submit'
+                                text='Clicca qui'
+                                onClick={() => window.open("https://www.tuttocampo.it/Sicilia/CalcioA5SerieC2/GironeASerieC2/Marcatori", "_blank")}
+                            >
+                            </Button>
+                        </CardFooter>
+                    </Card>
+
+                    <Card className="w-64 h-64 mx-auto">
+                        <CardHeader color="blue-gray" className="relative h-32">
+                            <img
+                                src="images/Fotolia_53254702_Subscription_Monthly_M.jpg"
+                                alt="card-image"
+                                className="w-full h-full object-cover"
+                            />
+                        </CardHeader>
+                        <CardBody className="overflow-hidden">
+                            <Typography variant="h5" color="blue-gray" className="text-center text-sm">
+                                STATISTICHE DI SQUADRA
+                            </Typography>
+                        </CardBody>
+                        <CardFooter className="pt-0 text-center">
+                            <Button
+                                type='submit'
+                                text='Clicca qui'
+                                onClick={() => window.open("https://www.tuttocampo.it/Sicilia/CalcioA5SerieC2/GironeASerieC2/Squadra/OratorioSanVincenzo/1171634/Statistiche", "_blank")}
+                            >
+                            </Button>
+                        </CardFooter>
+                    </Card>
+                </div>
             </div>
             <footer className="bg-blue-400 text-center py-4">
                 <p className="text-black">
