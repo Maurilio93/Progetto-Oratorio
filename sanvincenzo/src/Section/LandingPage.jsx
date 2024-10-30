@@ -10,6 +10,7 @@ import {
 } from "@material-tailwind/react";
 import { Button } from "../MyComponents/Section/Button";
 import { useNavigate } from "react-router-dom";
+import { Partite } from "./Partite";
 
 export function LandingPage() {
     const [isSocietaDropdownOpen, setIsSocietaDropdownOpen] = useState(false);
@@ -133,6 +134,7 @@ export function LandingPage() {
 
             {/* Sezione delle card vuote al centro */}
             <div className="flex justify-center items-center gap-6 mt-6">
+                <Partite />
                 <Card className="w-96 animate-pulse">
                     <CardHeader shadow={false} floated={false} className="relative grid h-56 place-items-center bg-gray-300">
                         <iframe src='https://www.tuttocampo.it/WidgetV2/Partita/30018696-716a-4194-a931-e7547a88ff56' width='500' height='350' loading='lazy'></iframe>
