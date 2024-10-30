@@ -7,10 +7,10 @@ export function Marcatori() {
         <div className="bg-blue-400 min-h-screen flex flex-col items-center px-4">
             {/* Contenitore per pulsante e titolo */}
             <div className="flex items-center justify-between w-full max-w-4xl mt-4">
-                <button
+            <button
                     onClick={() => navigate("/")}
                     type="button"
-                    className="bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200"
+                    className="bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200 absolute left-4"
                 >
                     Indietro
                 </button>

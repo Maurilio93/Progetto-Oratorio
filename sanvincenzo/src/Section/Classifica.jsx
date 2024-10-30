@@ -6,15 +6,15 @@ export function Classifica() {
     return (
         <div className="bg-blue-400 min-h-screen flex flex-col items-center px-4">
             {/* Contenitore per pulsante e titolo */}
-            <div className="flex items-center justify-between w-full max-w-4xl mt-4 mb-4 px-4 md:px-8">
+            <div className="flex items-center justify-center w-full max-w-4xl mt-4 mb-4 px-4">
                 <button
                     onClick={() => navigate("/")}
                     type="button"
-                    className="bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200"
+                    className="bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200 absolute left-4"
                 >
                     Indietro
                 </button>
-                <h1 className="text-2xl font-bold text-black text-center flex-grow pr-8 md:pr-0">
+                <h1 className="text-2xl font-bold text-black text-center">
                     CLASSIFICA
                 </h1>
             </div>
@@ -25,7 +25,7 @@ export function Classifica() {
                     src="https://www.tuttocampo.it/WidgetV2/Classifica/30018696-716a-4194-a931-e7547a88ff56"
                     loading="lazy"
                     title="Classifica"
-                    className="w-full sm:w-[450px] md:w-[600px] lg:w-[800px] h-[500px] sm:h-[600px] md:h-[700px]"
+                    className="w-full h-[500px] sm:h-[600px] md:h-[700px]"
                 ></iframe>
             </div>
         </div>
