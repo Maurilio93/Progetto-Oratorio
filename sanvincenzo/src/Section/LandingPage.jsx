@@ -67,7 +67,7 @@ export function LandingPage() {
 
                         {/* Icone Social */}
                         <div className="flex items-center gap-4">
-                            <a href="https://www.facebook.com/oratoriosanvincenzopalermo/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300">
+                            <a href="https://www.facebook.com/people/Oratorio-San-Vincenzo-c5/61565515795683/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300">
                                 <FaFacebook size={28} />
                             </a>
                             <a href="https://www.instagram.com/oratorio_sanvincenzoc5/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300">
@@ -137,7 +137,7 @@ export function LandingPage() {
                 </div>
             </header>
             <div className='flex flex-col justify-center items-center'>
-                <Carousel transition={{ duration: 2 }} className="rounded-l h-screen">
+                <Carousel transition={{ duration: 2 }} className="h-screen">
                     <img
                         src="images\WhatsApp Image 2024-10-29 at 16.37.06.jpeg"
                         alt="image 1"
