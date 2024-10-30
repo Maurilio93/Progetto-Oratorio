@@ -7,6 +7,9 @@ import {
 } from "react-router-dom";
 import { LandingPage } from './Section/LandingPage.jsx';
 import { Contatti } from './Section/Contatti.jsx';
+import { Classifica } from './Section/Classifica.jsx';
+import { Marcatori } from './Section/Marcatori.jsx';
+import { Risultati } from './Section/Risultati.jsx';
 
 
 const router = createBrowserRouter([
@@ -15,8 +18,20 @@ const router = createBrowserRouter([
     element: <LandingPage />,
   },
   {
-    path:"/contatti",
-    element:<Contatti />
+    path: "/contatti",
+    element: <Contatti />
+  },
+  {
+    path: "/classifica",
+    element: <Classifica />
+  },
+  {
+    path: "/marcatori",
+    element: <Marcatori />
+  },
+  {
+    path: "/risultati",
+    element: <Risultati />
   }
 ]);
 
