@@ -14,7 +14,7 @@ export function Risultati() {
                 >
                     Indietro
                 </button>
-                <h1 className="text-2xl font-bold text-black text-center flex-grow pr-20 py-8">
+                <h1 className="text-2xl font-bold text-black text-center flex-grow pr-18 ">
                     RISULTATI
                 </h1>
             </div>

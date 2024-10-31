@@ -114,7 +114,7 @@ export function LandingPage() {
                             </nav>
                         </div>
                         <div className="flex items-center gap-4">
-                            <a href="https://www.facebook.com/oratoriosanvincenzopalermo/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300"><FaFacebook size={28} /></a>
+                            <a href="https://www.facebook.com/people/Oratorio-San-Vincenzo-c5/61565515795683/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300"><FaFacebook size={28} /></a>
                             <a href="https://www.instagram.com/oratorio_sanvincenzoc5/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300"><FaInstagram size={28} /></a>
                             <a href="https://www.youtube.com/@OratorioSanVincenzoC5" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300"><FaYoutube size={28} /></a>
                         </div>
@@ -135,9 +135,6 @@ export function LandingPage() {
             {/* Sezione delle card vuote al centro */}
             <div className="flex justify-center items-center gap-6 mt-6">
                 <Partite />
-                
-
-
             </div>
 
             {/* Sezione delle ultime notizie */}

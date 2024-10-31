@@ -2,13 +2,13 @@ import { Card, CardBody, Typography } from "@material-tailwind/react";
 
 export function Partite() {
     return (
-        <div className="flex justify-center items-center min-h-screen bg-white px-4">
+        <div className="flex justify-center items-center min-h-screen bg-blue-400 px-4 rounded-xl">
             <div className="flex flex-col md:flex-row gap-6 w-full max-w-7xl space-y-6 md:space-y-0 md:space-x-6">
                 {/* Ultima partita */}
                 <Card className="w-full shadow-lg">
                     <CardBody>
-                        <Typography variant="h5" className="text-center mb-4">
-                            Ultima Partita
+                        <Typography variant="h5" className="text-center mb-4 text-blue-400">
+                            ULTIMA PARTITA
                         </Typography>
                         <div className="flex justify-center">
                             <iframe
@@ -25,8 +25,8 @@ export function Partite() {
                 {/* Prossima partita */}
                 <Card className="w-full shadow-lg">
                     <CardBody>
-                        <Typography variant="h5" className="text-center mb-4">
-                            Prossima Partita
+                        <Typography variant="h5" className="text-center mb-4 text-blue-400">
+                            PROSSIMA PARTITA
                         </Typography>
                         <div className="flex justify-center">
                             <iframe
