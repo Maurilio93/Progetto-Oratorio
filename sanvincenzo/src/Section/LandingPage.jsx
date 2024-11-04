@@ -127,12 +127,12 @@ export function LandingPage() {
                           </a>
                         </li>
                         <li>
-                          <a
-                            href="#"
+                          <button
+                            onClick={() => navigate("/lanostrastoria")}
                             className="block px-4 py-2 hover:bg-gray-100"
                           >
                             LA NOSTRA STORIA
-                          </a>
+                          </button>
                         </li>
                       </ul>
                     </div>
