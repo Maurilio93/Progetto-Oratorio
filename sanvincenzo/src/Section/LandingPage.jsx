@@ -46,13 +46,14 @@ export function LandingPage() {
         <div className="bg-white">
             <header className="bg-blue-400 fixed top-0 left-0 right-0 z-50">
                 <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 md:px-8">
-                    <div className="flex items-center gap-2">
-                        <img src="/images/images.jpeg" alt="Logo" className="h-10 w-10 rounded-xl" />
-                        <h4 className="text-white font-semibold text-sm md:text-base">Oratorio San Vincenzo</h4>
+                    {/* Logo e titolo sulla sinistra */}
+                    <div className="flex items-center gap-4 -mx-16">
+                        <img src="images/IMG_6743.PNG" alt="Logo" className="h-14 w-14 rounded-xl" />
+                        <h4 className="text-white font-semibold text-sm md:text-base">Oratorio San Vincenzo c5</h4>
                     </div>
-                    <div className="hidden md:flex items-center space-x-4">
+                    <div className="hidden md:flex items-center md:mx-10">
                         <nav aria-label="Global">
-                            <ul className="flex gap-8 text-sm">
+                            <ul className="flex gap-14 text-sm">
                                 <li
                                     className="relative"
                                     onMouseEnter={handleMouseEnterSocieta}
@@ -107,7 +108,7 @@ export function LandingPage() {
                             </ul>
                         </nav>
                     </div>
-                    <div className="hidden md:flex items-center gap-4">
+                    <div className="hidden md:flex items-center gap-6">
                         <a href="https://www.facebook.com/people/Oratorio-San-Vincenzo-c5/61565515795683/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300"><FaFacebook size={24} /></a>
                         <a href="https://www.instagram.com/oratorio_sanvincenzoc5/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300"><FaInstagram size={24} /></a>
                         <a href="https://www.youtube.com/@OratorioSanVincenzoC5" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300"><FaYoutube size={24} /></a>
@@ -137,7 +138,7 @@ export function LandingPage() {
                 )}
             </header>
 
-            <div className="flex flex-col justify-center items-center mt-10">
+            <div className="flex flex-col justify-center items-center mt-10 md:mt-0">
                 <Carousel transition={{ duration: 2 }} className="rounded-l h-64 md:h-screen w-full">
                     <img src="images/WhatsApp Image 2024-10-29 at 16.37.06.jpeg" alt="image 1" className="h-full w-full object-cover" />
                     <img src="images/2.png" alt="image 2" className="h-full w-full object-cover" />
