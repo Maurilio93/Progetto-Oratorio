@@ -24,14 +24,14 @@ export function Contatti() {
                     <button
                         onClick={() => navigate('/')}
                         type="button"
-                        className="absolute left-0 bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200"
+                        className="bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200 absolute left-4"
                     >
-                        Indietro
+                        ⬅️
                     </button>
 
-                    <h2 className="text-lg font-semibold md:text-3xl">
+                    <h1 className="text-xl font-semibold my-6 bg-white text-blue-400 py-2 px-6 rounded-lg shadow-lg">
                         CONTATTI 📞✉️
-                    </h2>
+                    </h1>
                 </div>
                 <Card className="overflow-x-auto border border-gray-300 px-4">
                     <table className="w-full min-w-max table-auto text-center">
@@ -78,9 +78,11 @@ export function Contatti() {
             </section>
 
             {/* Sezione Dove Trovarci */}
-            <div className="w-full flex flex-col" id="dove-siamo-section">
-                <h2 className="mb-4 text-lg font-semibold md:text-3xl flex justify-center items-center">DOVE TROVARCI 📍</h2>
-                <div className="relative pt-[56.25%]">
+            <div className="w-full flex flex-col items-center" id="dove-siamo-section">
+                <h1 className="inline-block text-xl font-semibold my-6 bg-white text-blue-400 py-2 px-6 rounded-lg shadow-lg">
+                    DOVE TROVARCI 📍
+                </h1>
+                <div className="relative pt-[56.25%] w-full max-w-4xl">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3137.707755040901!2d13.308546977246095!3d38.146987912009585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1319e92bb97179ab%3A0x53eaaa5d7dbe5c6f!2sTre%20Stelle%20Club!5e0!3m2!1sit!2sit!4v1730286032292!5m2!1sit!2sit"
                         className="absolute top-0 left-0 w-full h-full border-0 rounded-xl"

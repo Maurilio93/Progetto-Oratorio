@@ -45,7 +45,7 @@ export function LandingPage() {
     },
     {
       imageLink:
-        "images/10.png",
+        "images/Progetto senza titolo.png",
     },
   ];
 
@@ -80,7 +80,7 @@ export function LandingPage() {
           {/* Logo e titolo sulla sinistra */}
           <div className="flex items-center gap-2 md:gap-4 justify-center md:-mx-12">
             <img src="images/IMG_6743.PNG" alt="Logo" className="h-14 w-14 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-xl" />
-            <h4 className="text-white font-semibold text-xl px-4 sm:text-xl md:text-base">Oratorio San Vincenzo c5</h4>
+            <h4 className="text-white font-semibold text-l px-4 sm:text-xl md:text-base">Oratorio San Vincenzo c5</h4>
           </div>
           <div className="hidden md:flex items-center md:mx-10">
             <nav aria-label="Global">
@@ -151,12 +151,12 @@ export function LandingPage() {
                   </a>
                 </li>
                 <li>
-                  <a
+                  <button
+                    onClick={() => navigate("/galleria")}
                     className="text-black font-bold transition hover:text-white"
-                    href="#"
                   >
-                    GALLERIA
-                  </a>
+                    GALLERY
+                  </button>
                 </li>
                 <li
                   className="relative"
@@ -259,7 +259,7 @@ export function LandingPage() {
           <div className="md:hidden absolute top-16 left-0 right-0 bg-blue-400 text-white text-center">
             <ul className="flex flex-col items-center space-y-4 py-4">
               <li className="relative" onMouseEnter={handleMouseEnterSocieta} onMouseLeave={handleMouseLeaveSocieta}>
-                <button className="font-bold flex items-center justify-center">
+                <button className="font-bold flex items-center justify-center text-black transition hover:text-white">
                   SOCIETÀ
                   <svg className="w-2.5 h-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
@@ -288,9 +288,9 @@ export function LandingPage() {
               >
                 PARTNER
               </a></li>
-              <li><a href="#" className="font-bold">GALLERIA</a></li>
+              <li><a href="#" className="text-black font-bold transition hover:text-white">GALLERIA</a></li>
               <li className="relative" onMouseEnter={handleMouseEnterSquadre} onMouseLeave={handleMouseLeaveSquadre}>
-                <button className="font-bold flex items-center justify-center">
+                <button className="font-bold flex items-center justify-center text-black transition hover:text-white">
                   SQUADRE
                   <svg className="w-2.5 h-2.5 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
@@ -309,7 +309,7 @@ export function LandingPage() {
                   </div>
                 )}
               </li>
-              <li><button onClick={() => navigate("/contatti")} className="font-bold">CONTATTI</button></li>
+              <li><button onClick={() => navigate("/contatti")} className="text-black font-bold transition hover:text-white">CONTATTI</button></li>
             </ul>
             <div className="flex justify-center gap-6 mt-4 pb-4">
               <a href="https://www.facebook.com/people/Oratorio-San-Vincenzo-c5/61565515795683/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300"><FaFacebook size={24} /></a>
@@ -327,7 +327,7 @@ export function LandingPage() {
             }`}
         >
           <Carousel
-            transition={{ duration: 2 }}
+            transition={{ duration: 0.5 }}
             className="rounded-l h-64 md:h-screen w-full"
           >
             <img
@@ -355,8 +355,12 @@ export function LandingPage() {
 
       {/*Sezione sponsor */}
       <div className="flex flex-col items-center my-6" id="sponsor-section" style={{ scrollMarginTop: "70px" }}>
-        <p className="text-center text-xl font-semibold my-6">I NOSTRI PARTNER</p>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+        <p
+          className="text-center text-2xl font-semibold my-12 bg-blue-400 text-black py-2 px-6 rounded-lg shadow-lg  hover:bg-blue-400 hover:text-white"
+        >
+          I NOSTRI PARTNER
+        </p>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mr-3 ml-3  md:grid-cols-3">
           {data.map(({ imageLink }, index) => (
             <div key={index}>
               <img
@@ -370,7 +374,7 @@ export function LandingPage() {
       </div>
 
       <div className="flex flex-col items-center my-6">
-        <p className="text-center text-xl font-semibold my-6">ULTIME NOTIZIE</p>
+        <p className="text-center text-2xl font-semibold my-12 bg-blue-400 text-black py-2 px-6 rounded-lg shadow-lg  hover:bg-blue-400 hover:text-white">ULTIME NEWS</p>
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-32 mt-6">
           <Card className="w-64 h-64 mx-auto">
             <CardHeader color="blue-gray" className="relative h-32">

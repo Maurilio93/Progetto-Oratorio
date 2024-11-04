@@ -6,15 +6,15 @@ export function Marcatori() {
     return (
         <div className="bg-blue-400 min-h-screen flex flex-col items-center px-4">
             {/* Contenitore per pulsante e titolo */}
-            <div className="flex items-center justify-between w-full max-w-4xl mt-4">
+            <div className="flex items-center justify-center w-full max-w-4xl mt-4">
             <button
                     onClick={() => navigate("/")}
                     type="button"
                     className="bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200 absolute left-4"
                 >
-                    Indietro
+                    ⬅️
                 </button>
-                <h1 className="text-2xl font-bold text-black text-center flex-grow pr-18">
+                <h1 className="text-xl font-semibold my-6 bg-white text-blue-400 py-2 px-6 rounded-lg shadow-lg">
                     MARCATORI
                 </h1>
             </div>

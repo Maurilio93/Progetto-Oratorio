@@ -10,6 +10,7 @@ import { Contatti } from './Section/Contatti.jsx';
 import { Classifica } from './Section/Classifica.jsx';
 import { Marcatori } from './Section/Marcatori.jsx';
 import { Risultati } from './Section/Risultati.jsx';
+import { Galleria } from './Section/Galleria.jsx';
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/risultati",
     element: <Risultati />
+  },
+  {
+    path: "/galleria",
+    element: <Galleria/>
   }
 ]);
 
