@@ -47,8 +47,8 @@ export function LandingPage() {
                 <div className="max-w-screen-xl ml-4">
                     <div className="flex h-16 items-center justify-between">
                         <div className="flex items-center gap-2">
-                            <img src="/images/images.jpeg" alt="Logo" className="h-14 rounded-xl" />
-                            <h4 className="text-white font-semibold">Oratorio San Vincenzo</h4>
+                            <img src="images/IMG_6743.PNG" alt="Logo" className="h-14 rounded-xl" />
+                            <h4 className="text-white font-semibold">Oratorio San Vincenzo c5</h4>
                         </div>
                         <div className="hidden md:block ml-12">
                             <nav aria-label="Global">
