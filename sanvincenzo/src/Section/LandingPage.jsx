@@ -273,7 +273,7 @@ export function LandingPage() {
                   >
                     <ul className="py-2 text-sm text-blue-400">
                       <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">DIRIGENZA</a></li>
-                      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">LA NOSTRA STORIA</a></li>
+                      <li><button onClick={() => navigate("/lanostrastoria")} className="block px-4 py-2 hover:bg-gray-100">LA NOSTRA STORIA</button></li>
                     </ul>
                   </div>
                 )}
