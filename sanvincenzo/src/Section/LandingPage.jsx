@@ -78,9 +78,9 @@ export function LandingPage() {
       <header className="bg-blue-400 fixed top-0 left-0 right-0 z-50">
         <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 md:px-0">
           {/* Logo e titolo sulla sinistra */}
-          <div className="flex items-center gap-2 md:gap-4">
-            <img src="images/IMG_6743.PNG" alt="Logo" className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-xl" />
-            <h4 className="text-white font-semibold text-xs sm:text-sm md:text-base">Oratorio San Vincenzo c5</h4>
+          <div className="flex items-center gap-2 md:gap-4 justify-center md:-mx-12">
+            <img src="images/IMG_6743.PNG" alt="Logo" className="h-14 w-14 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-xl" />
+            <h4 className="text-white font-semibold text-xl px-4 sm:text-xl md:text-base">Oratorio San Vincenzo c5</h4>
           </div>
           <div className="hidden md:flex items-center md:mx-10">
             <nav aria-label="Global">
@@ -321,7 +321,7 @@ export function LandingPage() {
       </header>
 
 
-      <div className="flex flex-col justify-center items-center mt-10 md:mt-0">
+      <div className="flex flex-col justify-center items-center md:mt-0">
         <div
           className={`flex flex-col justify-center items-center mt-10 md:mt-0 ${isMobileMenuOpen ? "hidden" : "block"
             }`}
