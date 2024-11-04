@@ -288,7 +288,7 @@ export function LandingPage() {
               >
                 PARTNER
               </a></li>
-              <li><a href="#" className="text-black font-bold transition hover:text-white">GALLERIA</a></li>
+              <li><button onClick={() => navigate("/galleria")} className="text-black font-bold transition hover:text-white">GALLERIA</button></li>
               <li className="relative" onMouseEnter={handleMouseEnterSquadre} onMouseLeave={handleMouseLeaveSquadre}>
                 <button className="font-bold flex items-center justify-center text-black transition hover:text-white">
                   SQUADRE
