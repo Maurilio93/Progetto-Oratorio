@@ -134,6 +134,18 @@ export function LandingPage() {
                             LA NOSTRA STORIA
                           </button>
                         </li>
+                        <li>
+                          <a
+                            className="block px-4 py-2 hover:bg-gray-100"
+                            href="#news-section" // Punta all'id della sezione di destinazione
+                            onClick={(e) => {
+                              e.preventDefault(); // Previene il comportamento predefinito del link
+                              document.getElementById("news-section").scrollIntoView({ behavior: "smooth" });
+                            }}
+                          >
+                            ULTIME NEWS
+                          </a>
+                        </li>
                       </ul>
                     </div>
                   )}
@@ -147,7 +159,7 @@ export function LandingPage() {
                       document.getElementById("sponsor-section").scrollIntoView({ behavior: "smooth" });
                     }}
                   >
-                    PARTNER
+                    SPONSOR
                   </a>
                 </li>
                 <li>
@@ -274,6 +286,18 @@ export function LandingPage() {
                     <ul className="py-2 text-sm text-blue-400">
                       <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">DIRIGENZA</a></li>
                       <li><button onClick={() => navigate("/lanostrastoria")} className="block px-4 py-2 hover:bg-gray-100">LA NOSTRA STORIA</button></li>
+                      <li>
+                        <a
+                          className="block px-4 py-2 hover:bg-gray-100"
+                          href="#news-section" // Punta all'id della sezione di destinazione
+                          onClick={(e) => {
+                            e.preventDefault(); // Previene il comportamento predefinito del link
+                            document.getElementById("news-section").scrollIntoView({ behavior: "smooth" });
+                          }}
+                        >
+                          ULTIME NEWS
+                        </a>
+                      </li>
                     </ul>
                   </div>
                 )}
@@ -286,7 +310,7 @@ export function LandingPage() {
                   document.getElementById("sponsor-section").scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                PARTNER
+                SPONSOR
               </a></li>
               <li><button onClick={() => navigate("/galleria")} className="text-black font-bold transition hover:text-white">GALLERIA</button></li>
               <li className="relative" onMouseEnter={handleMouseEnterSquadre} onMouseLeave={handleMouseLeaveSquadre}>
@@ -356,9 +380,9 @@ export function LandingPage() {
       {/*Sezione sponsor */}
       <div className="flex flex-col items-center my-6" id="sponsor-section" style={{ scrollMarginTop: "70px" }}>
         <p
-          className="text-center text-2xl font-semibold my-12 bg-blue-400 text-black py-2 px-6 rounded-lg shadow-lg  hover:bg-blue-400 hover:text-white"
+          className="text-center text-2xl font-semibold my-12 bg-blue-400 text-black py-2 px-6 rounded-lg shadow-lg  hover:bg-blue-400"
         >
-          I NOSTRI PARTNER
+          I NOSTRI SPONSOR
         </p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mr-3 ml-3  md:grid-cols-3">
           {data.map(({ imageLink }, index) => (
@@ -372,9 +396,11 @@ export function LandingPage() {
           ))}
         </div>
       </div>
+      <div>
 
-      <div className="flex flex-col items-center my-6">
-        <p className="text-center text-2xl font-semibold my-12 bg-blue-400 text-black py-2 px-6 rounded-lg shadow-lg  hover:bg-blue-400 hover:text-white">ULTIME NEWS</p>
+      </div>
+      <div className="flex flex-col items-center my-8 py-6" id="news-section">
+        <p className="text-center text-2xl font-semibold my-12 bg-blue-400 text-black py-2 px-6 rounded-lg shadow-lg  hover:bg-blue-400" >ULTIME NEWS</p>
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-32 mt-6">
           <Card className="w-64 h-64 mx-auto">
             <CardHeader color="blue-gray" className="relative h-32">
