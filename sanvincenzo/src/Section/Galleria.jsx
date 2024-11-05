@@ -54,6 +54,18 @@ export function Galleria() {
             imgelink:
                 "images/gallery13.png",
         },
+        {
+            imgelink:
+                "images/gallery14.png",
+        },
+        {
+            imgelink:
+                "images/gallery15.png",
+        },
+        {
+            imgelink:
+                "images/gallery16.png",
+        },
 
     ];
 
