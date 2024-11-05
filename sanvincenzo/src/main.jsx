@@ -12,6 +12,7 @@ import { Marcatori } from './Section/Marcatori.jsx';
 import { Risultati } from './Section/Risultati.jsx';
 import { Galleria } from './Section/Galleria.jsx';
 import { LaNostraStoria } from './Section/LaNostraStoria.jsx';
+import { PrimaSquadra } from './Section/PrimaSquadra.jsx';
 
 
 
@@ -38,11 +39,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/galleria",
-    element: <Galleria/>
+    element: <Galleria />
   },
   {
     path: "/lanostrastoria",
     element: <LaNostraStoria />
+  },
+  {
+    path: "/primasquadra",
+    element: <PrimaSquadra />
   }
 ]);
 

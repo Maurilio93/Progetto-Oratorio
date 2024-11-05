@@ -24,7 +24,7 @@ export function Contatti() {
                     <button
                         onClick={() => navigate('/')}
                         type="button"
-                        className="bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200 absolute left-4"
+                        className="bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200 absolute left-1"
                     >
                         ⬅️
                     </button>

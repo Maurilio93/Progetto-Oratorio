@@ -203,13 +203,13 @@ export function LandingPage() {
                       onMouseLeave={handleMouseLeaveSquadre}
                     >
                       <ul className="py-2 text-sm text-blue-400">
-                        <li>
-                          <a
-                            href="#"
+                      <li>
+                          <button
+                            onClick={() => navigate("/primasquadra")}
                             className="block px-4 py-2 hover:bg-gray-100"
                           >
                             PRIMA SQUADRA
-                          </a>
+                          </button>
                         </li>
                         <li>
                           <a
@@ -360,12 +360,12 @@ export function LandingPage() {
               className="h-full w-full object-cover"
             />
             <img
-              src="images/2.png"
+              src="images/gallery12.png"
               alt="image 2"
               className="h-full w-full object-cover"
             />
             <img
-              src="images/1.png"
+              src="images/gallery8.png"
               alt="image 3"
               className="h-full w-full object-cover"
             />
