@@ -8,10 +8,6 @@ export function Galleria() {
     const data = [
         {
             imgelink:
-                "images/gallery1.png",
-        },
-        {
-            imgelink:
                 "images/gallery2.png",
         },
         {

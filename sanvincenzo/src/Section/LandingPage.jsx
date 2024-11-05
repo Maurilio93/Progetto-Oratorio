@@ -203,13 +203,13 @@ export function LandingPage() {
                       onMouseLeave={handleMouseLeaveSquadre}
                     >
                       <ul className="py-2 text-sm text-blue-400">
-                        <li>
-                          <a
-                            href="#"
+                      <li>
+                          <button
+                            onClick={() => navigate("/primasquadra")}
                             className="block px-4 py-2 hover:bg-gray-100"
                           >
                             PRIMA SQUADRA
-                          </a>
+                          </button>
                         </li>
                         <li>
                           <a
