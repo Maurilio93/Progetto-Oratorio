@@ -1,26 +1,19 @@
-import { useNavigate } from "react-router-dom";
+import { Navbar } from "./Navbar";
 
 export function Marcatori() {
-    const navigate = useNavigate();
 
     return (
-        <div className="bg-blue-400 min-h-screen flex flex-col items-center px-4">
+        <div className="bg-gray-200 min-h-screen flex flex-col items-center px-4">
             {/* Contenitore per pulsante e titolo */}
-            <div className="flex items-center justify-center w-full max-w-4xl mt-4">
-            <button
-                    onClick={() => navigate("/")}
-                    type="button"
-                    className="bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200 absolute left-4"
-                >
-                    ⬅️
-                </button>
-                <h1 className="text-xl font-semibold my-6 bg-white text-blue-400 py-2 px-6 rounded-lg shadow-lg">
+            <div className="flex items-center justify-center w-full max-w-4xl mt-16">
+                <Navbar></Navbar>
+                <h1 className="text-xl font-semibold my-6 bg-white text-blue-400 py-2 px-6 shadow-2xl">
                     MARCATORI
                 </h1>
             </div>
 
             {/* Widget Classifica */}
-            <div className="flex justify-center items-center bg-white p-4 rounded-lg shadow-md mt-6 w-full max-w-4xl">
+            <div className="flex justify-center items-center bg-white p-4 rounded-lg shadow-md mt-6 w-full max-w-2xl mb-6">
                 <iframe
                     src="https://www.tuttocampo.it/WidgetV2/Marcatori/30018696-716a-4194-a931-e7547a88ff56"
                     className="w-full sm:w-[450px] md:w-[600px] lg:w-[800px] h-[500px] sm:h-[600px] md:h-[700px]"
