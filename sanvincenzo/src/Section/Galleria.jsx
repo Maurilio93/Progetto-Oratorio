@@ -1,112 +1,84 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Navbar } from "./Navbar";
 
 export function Galleria() {
 
-    const navigate = useNavigate();
 
     const data = [
-        {
-            imgelink:
-                "images/gallery2.png",
-        },
-        {
-            imgelink:
-                "images/gallery3.png",
-        },
-        {
-            imgelink:
-                "images/gallery4.png",
-        },
-        {
-            imgelink:
-                "images/gallery5.png",
-        },
-        {
-            imgelink:
-                "images/gallery6.png",
-        },
-        {
-            imgelink:
-                "images/gallery7.png",
-        },
-        {
-            imgelink:
-                "images/gallery8.png",
-        },
-        {
-            imgelink:
-                "images/gallery9.png",
-        },
-        {
-            imgelink:
-                "images/gallery10.png",
-        },
-        {
-            imgelink:
-                "images/gallery11.png",
-        },
-        {
-            imgelink:
-                "images/gallery12.png",
-        },
-        {
-            imgelink:
-                "images/gallery13.png",
-        },
-        {
-            imgelink:
-                "images/gallery14.png",
-        },
-        {
-            imgelink:
-                "images/gallery15.png",
-        },
-        {
-            imgelink:
-                "images/gallery16.png",
-        },
-
+        { imgelink: "images/gallery2.png" },
+        { imgelink: "images/gallery3.png" },
+        { imgelink: "images/gallery4.png" },
+        { imgelink: "images/gallery5.png" },
+        { imgelink: "images/gallery6.png" },
+        { imgelink: "images/gallery7.png" },
+        { imgelink: "images/gallery8.png" },
+        { imgelink: "images/gallery9.png" },
+        { imgelink: "images/gallery10.png" },
+        { imgelink: "images/gallery11.png" },
+        { imgelink: "images/gallery12.png" },
+        { imgelink: "images/gallery13.png" },
+        { imgelink: "images/gallery14.png" },
+        { imgelink: "images/gallery15.png" },
+        { imgelink: "images/gallery16.png" },
     ];
 
-    const [active, setActive] = React.useState(
-        "images/Progetto senza titolo (3).png",
-    );
+    const [activeIndex, setActiveIndex] = React.useState(0);
+
+    const handleNext = () => {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % data.length);
+    };
+
+    const handlePrev = () => {
+        setActiveIndex((prevIndex) =>
+            prevIndex === 0 ? data.length - 1 : prevIndex - 1
+        );
+    };
 
     return (
-        <div className="flex flex-col items-center bg-blue-400">
-            <div className="flex items-center justify-center w-full max-w-4xl mt-2">
-                <button
-                    onClick={() => navigate("/")}
-                    type="button"
-                    className="bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200 absolute left-4"
-                >
-                    ⬅️
-                </button>
-                <h1 className="text-xl font-semibold my-6 bg-white text-blue-400 py-2 px-6 rounded-lg shadow-lg">
+        <div className="flex flex-col items-center bg-white">
+            <div className="flex items-center justify-center w-full max-w-4xl mt-16">
+                <Navbar></Navbar>
+                <h1 className="text-xl font-semibold my-6 bg-white text-blue-400 py-2 px-6 shadow-2xl">
                     GALLERY
                 </h1>
             </div>
-            <div className="grid gap-4">
-                <div>
+            <div className="relative w-full max-w-4xl">
+                <button
+                    onClick={handlePrev}
+                    className="absolute top-1/2 -left-20 transform -translate-y-1/2 bg-white text-blue-600 font-bold py-1 px-2 rounded-full shadow-md hover:bg-gray-200 z-10"
+                >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 12H4M4 12L10 6M4 12L10 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                </button>
+                <div className="flex justify-center">
                     <img
                         className="h-auto w-full max-w-full rounded-lg object-cover object-center md:h-[480px]"
-                        src={active}
-                        alt=""
+                        src={data[activeIndex].imgelink}
+                        alt="active-gallery"
                     />
                 </div>
-                <div className="grid grid-cols-5 gap-4 ml-2 mr-2 md:grid-cols-12">
-                    {data.map(({ imgelink }, index) => (
-                        <div key={index}>
-                            <img
-                                onClick={() => setActive(imgelink)}
-                                src={imgelink}
-                                className="h-20 max-w-full cursor-pointer rounded-lg object-cover object-center"
-                                alt="gallery-image"
-                            />
-                        </div>
-                    ))}
-                </div>
+                <button
+                    onClick={handleNext}
+                    className="absolute top-1/2 -right-20 transform -translate-y-1/2 bg-white text-blue-600 font-bold py-1 px-2 rounded-full shadow-md hover:bg-gray-200 z-10"
+                >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                </button>
+            </div>
+            <div className="grid grid-cols-5 gap-4 ml-2 mr-2 md:grid-cols-12 mt-4 my-4">
+                {data.map(({ imgelink }, index) => (
+                    <div key={index}>
+                        <img
+                            onClick={() => setActiveIndex(index)}
+                            src={imgelink}
+                            className={`h-20 max-w-full cursor-pointer rounded-lg object-cover object-center ${index === activeIndex ? "border-4 border-blue-600" : ""
+                                }`}
+                            alt={`gallery-image-${index}`}
+                        />
+                    </div>
+                ))}
             </div>
         </div>
     );

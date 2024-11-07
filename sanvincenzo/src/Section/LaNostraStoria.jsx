@@ -1,22 +1,14 @@
-import { useNavigate } from "react-router-dom";
+import { Navbar } from "./Navbar";
 
 export function LaNostraStoria() {
-  const navigate = useNavigate();
 
   return (
-    <div className="relative bg-blue-400 p-8 md:p-16">
-      {/* Bottone per tornare indietro */}
-      <button
-        onClick={() => navigate("/")}
-        type="button"
-        className="bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200 absolute top-6 left-8 md:top-4 md:left-16 md:mt-10"
-      >
-        ⬅️
-      </button>
+    <div className="relative bg-gray-300 p-8 md:p-16">
+      <Navbar></Navbar>
 
       {/* Contenitore per titolo e logo centrati */}
-      <div className="flex items-center justify-center mt-8 mb-8 md:-mt-12">
-        <h2 className="text-lg md:text-2xl font-semibold bg-white text-blue-400 py-1 px-4 rounded-lg shadow-lg mr-4">
+      <div className="flex items-center justify-center mt-12 mb-8 md:mt-6">
+        <h2 className="text-lg md:text-2xl font-semibold bg-white text-blue-400 py-1 px-4 shadow-2xl mr-4">
           LA NOSTRA STORIA
         </h2>
         <img
@@ -27,7 +19,7 @@ export function LaNostraStoria() {
       </div>
 
       {/* Testo con paragrafi distanziati */}
-      <div className="text-base md:text-lg text-blue-400 font-bold leading-relaxed rounded-3xl p-8 bg-gray-100 space-y-6">
+      <div className="text-base md:text-lg text-black font-thin leading-relaxed p-8 bg-gray-100 space-y-6 shadow-2xl">
         <p>
           L&apos;ASD Oratorio San Vincenzo nasce con un obiettivo chiaro: promuovere il calcio a 5 all&apos;interno del quartiere Resuttana San Lorenzo, valorizzando i giovani e favorendo la crescita sportiva e personale dei ragazzi. Fin dalle sue origini, la società ha trovato la sua forza nei legami costruiti all&apos;interno dell&apos;oratorio, dove tanti giovani talenti hanno avuto l’opportunità di crescere e di cimentarsi nello sport. 👟
         </p>
