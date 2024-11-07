@@ -29,7 +29,7 @@ export function LandingPage() {
       <Navbar />
 
       <div className="flex flex-col justify-center items-center md:mt-0">
-        <div className="flex flex-col justify-center items-center mt-10 md:mt-0">
+        <div className="flex flex-col justify-center items-center mt-0 md:mt-0">
           <Carousel
             transition={{ duration: 0.5 }}
             className="rounded-l h-64 md:h-screen w-full"
@@ -63,7 +63,7 @@ export function LandingPage() {
         id="sponsor-section"
         style={{ scrollMarginTop: "70px" }}
       >
-        <p className="text-center text-2xl font-semibold my-12 bg-gray-300 text-black py-2 px-6 shadow-2xl">
+        <p className="text-center text-2xl font-semibold my-12 text-black py-2 px-6">
           I NOSTRI SPONSOR
         </p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mr-3 ml-3 md:flex flex-row">
@@ -82,7 +82,7 @@ export function LandingPage() {
 
       {/* News Section */}
       <div className="flex flex-col items-center my-8 py-6" id="news-section">
-        <p className="text-center text-2xl font-semibold my-12 bg-gray-300 text-black py-2 px-6 shadow-2xl">
+        <p className="text-center text-2xl font-semibold my-12 text-black py-2 px-6">
           ULTIME NEWS
         </p>
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-32 mt-6">

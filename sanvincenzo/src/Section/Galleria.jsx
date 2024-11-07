@@ -38,7 +38,7 @@ export function Galleria() {
         <div className="flex flex-col items-center bg-white">
             <div className="flex items-center justify-center w-full max-w-4xl mt-16">
                 <Navbar></Navbar>
-                <h1 className="text-xl font-semibold my-6 bg-white text-blue-400 py-2 px-6 shadow-2xl">
+                <h1 className="text-xl font-semibold my-6  text-blue-400 py-2 px-6">
                     GALLERY
                 </h1>
             </div>

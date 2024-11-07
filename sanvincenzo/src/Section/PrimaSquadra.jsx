@@ -6,10 +6,10 @@ import {
     Card,
     Typography,
 } from "@material-tailwind/react";
-import { useNavigate } from "react-router-dom";
+import { Navbar } from "./Navbar";
 
 export function PrimaSquadra() {
-    const navigate = useNavigate();
+
 
     // Array of players categorized by their roles
     const players = {
@@ -42,42 +42,67 @@ export function PrimaSquadra() {
     };
 
     return (
-        <Card className="flex justify-center items-center bg-blue-400 rounded-none">
+        <Card className="flex flex-col justify-center items-center bg-white rounded-none p-4">
             <div className="flex items-center justify-center w-full max-w-4xl mt-2">
-                <button
-                    onClick={() => navigate("/")}
-                    type="button"
-                    className="bg-white text-blue-600 font-semibold py-1 px-3 rounded-md text-sm hover:bg-gray-200 absolute left-4"
-                >
-                    ⬅️
-                </button>
-                <h1 className="text-xl font-semibold my-6 bg-white text-blue-400 py-2 px-6 rounded-lg shadow-lg">
+                <Navbar></Navbar>
+                <h1 className="text-xl font-semibold my-10 text-blue-400 py-8">
                     PRIMA SQUADRA
                 </h1>
             </div>
-            <List>
-                {Object.entries(players).map(([category, playersList]) => (
-                    <div key={category}>
-                        <Typography variant="h5" color="black" className="mt-4 my-4">
-                            {category.charAt(0).toUpperCase() + category.slice(1)}
-                        </Typography>
-                        {playersList.map((player, index) => (
-                            <ListItem key={index} className="bg-gray-100 mb-2">
-                                <ListItemPrefix>
-                                    <Avatar variant="rounded" className="w-16 h-16" alt={player.name} src={player.avatar} />
-                                </ListItemPrefix>
-                                <div>
-                                    <Typography variant="h6" color="blue-gray">
-                                        {player.name}
-                                    </Typography>
-                                    <Typography variant="small" color="blue" className="font-semibold">
-                                        {player.data}
-                                    </Typography>
-                                </div>
-                            </ListItem>
-                        ))}
-                    </div>
-                ))}
+            <List className="-mt-6 w-full max-w-4xl mx-auto">
+                {Object.entries(players).map(([category, playersList]) => {
+                    // Mappa delle emoji per le categorie
+                    const categoryEmojis = {
+                        PORTIERI: '🧤',   // Emoji per portieri
+                        DIFENSORI: '🛡️',  // Emoji per difensori
+                        LATERALI: '🏃',   // Emoji per ala
+                        PIVOTS: '⚽'      // Emoji per attaccanti/pivot
+                    };
+
+                    // Recupera l'emoji dalla mappa
+                    const emoji = categoryEmojis[category.toUpperCase()] || '';
+
+                    return (
+                        <div key={category} className="mb-8">
+                            <Typography variant="h5" color="black" className="mt-4 mb-4 text-center">
+                                {emoji} {category.charAt(0).toUpperCase() + category.slice(1)}
+                            </Typography>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+                                {playersList.map((player, index) => (
+                                    <ListItem
+                                        key={index}
+                                        className="bg-blue-100 p-2 rounded-lg mb-2 flex items-center hover:bg-blue-200 md:flex-row md:p-3"
+                                    >
+                                        <ListItemPrefix>
+                                            <Avatar
+                                                variant="rounded"
+                                                className="w-12 h-12 mr-2 md:w-14 md:h-14"
+                                                alt={player.name}
+                                                src={player.avatar}
+                                            />
+                                        </ListItemPrefix>
+                                        <div className="text-left">
+                                            <Typography
+                                                variant="h6"
+                                                color="blue-gray"
+                                                className="text-sm md:text-base"
+                                            >
+                                                {player.name}
+                                            </Typography>
+                                            <Typography
+                                                variant="small"
+                                                color="blue"
+                                                className="font-semibold text-xs md:text-sm"
+                                            >
+                                                {player.data}
+                                            </Typography>
+                                        </div>
+                                    </ListItem>
+                                ))}
+                            </div>
+                        </div>
+                    );
+                })}
             </List>
         </Card>
     );
