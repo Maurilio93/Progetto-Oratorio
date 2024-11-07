@@ -58,7 +58,7 @@ export function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <header className="bg-blue-400 md:fixed md:top-0 md:left-0 md:right-0 md:z-50">
+      <header className="bg-blue-400 fixed top-0 left-0 right-0 z-50">
         <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 md:px-0">
           {/* Logo e titolo a sinistra */}
           <div className="flex items-center gap-2 md:gap-4 justify-center md:-mx-12">
@@ -265,177 +265,175 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Menu Mobile */}
-      {isMobileMenuOpen && (
-        <div className="bg-blue-400 text-white">
-          <ul className="flex flex-col">
-            {/* Menu SOCIETÀ per mobile */}
-            <li className="border-b border-white">
-              <button
-                className="w-full text-left px-4 py-2 font-bold text-white flex justify-between items-center"
-                onClick={() => setIsSocietaMobileDropdownOpen(!isSocietaMobileDropdownOpen)}
-              >
-                SOCIETÀ
-                <svg
-                  className={`w-2.5 h-2.5 ml-1 transform ${isSocietaMobileDropdownOpen ? 'rotate-180' : ''}`}
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M1 1l4 4 4-4"
-                  />
-                </svg>
+      {/* Menu Mobile - visibile solo se isMobileMenuOpen è true */}
+{isMobileMenuOpen && (
+  <div className="bg-blue-400 text-white fixed top-16 left-0 right-0 bottom-18 z-50">
+    <ul className="flex flex-col">
+      {/* Menu SOCIETÀ per mobile */}
+      <li className="border-b border-white">
+        <button
+          className="w-full text-left px-4 py-2 font-bold text-white flex justify-between items-center hover:text-black"
+          onClick={() => setIsSocietaMobileDropdownOpen(!isSocietaMobileDropdownOpen)}
+        >
+          SOCIETÀ
+          <svg
+            className={`w-2.5 h-2.5 ml-1 transform ${isSocietaMobileDropdownOpen ? 'rotate-180' : ''}`}
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M1 1l4 4 4-4"
+            />
+          </svg>
+        </button>
+        {isSocietaMobileDropdownOpen && (
+          <ul className="bg-white text-blue-400">
+            <li className="border-b border-black">
+              <button className="block w-full text-left px-4 py-2 hover:bg-gray-200">
+                DIRIGENZA
               </button>
-              {isSocietaMobileDropdownOpen && (
-                <ul className="bg-blue-500 text-white">
-                  <li>
-                    <button className="block w-full text-left px-4 py-2 hover:bg-blue-600">
-                      DIRIGENZA
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => {
-                        navigate("/lanostrastoria");
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-blue-600"
-                    >
-                      LA NOSTRA STORIA
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      className="block w-full text-left px-4 py-2 hover:bg-blue-600"
-                      onClick={() => {
-                        goToSection();
-                        setIsMobileMenuOpen(false);
-                      }}
-                    >
-                      ULTIME NEWS
-                    </button>
-                  </li>
-                </ul>
-              )}
             </li>
-            {/* Link SPONSOR per mobile */}
-            <li className="border-b border-white">
+            <li className="border-b border-black">
               <button
                 onClick={() => {
-                  goToAnotherSection();
+                  navigate("/lanostrastoria");
                   setIsMobileMenuOpen(false);
                 }}
-                className="w-full text-left px-4 py-2 font-bold text-white hover:text-gray-300"
+                className="block w-full text-left px-4 py-2 hover:bg-gray-200"
               >
-                SPONSOR
+                LA NOSTRA STORIA
               </button>
             </li>
-            {/* Link GALLERIA per mobile */}
-            <li className="border-b border-white">
+            <li className="border-b border-black">
               <button
+                className="block w-full text-left px-4 py-2 hover:bg-gray-200"
                 onClick={() => {
-                  navigate("/galleria");
+                  goToSection();
                   setIsMobileMenuOpen(false);
                 }}
-                className="w-full text-left px-4 py-2 font-bold text-white hover:text-gray-300"
               >
-                GALLERIA
-              </button>
-            </li>
-            {/* Menu SQUADRE per mobile */}
-            <li className="border-b border-white">
-              <button
-                className="w-full text-left px-4 py-2 font-bold text-white flex justify-between items-center"
-                onClick={() => setIsSquadreMobileDropdownOpen(!isSquadreMobileDropdownOpen)}
-              >
-                SQUADRE
-                <svg
-                  className={`w-2.5 h-2.5 ml-1 transform ${isSquadreMobileDropdownOpen ? 'rotate-180' : ''}`}
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M1 1l4 4 4-4"
-                  />
-                </svg>
-              </button>
-              {isSquadreMobileDropdownOpen && (
-                <ul className="bg-blue-500 text-white">
-                  <li>
-                    <button
-                      onClick={() => {
-                        navigate("/primasquadra");
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-blue-600"
-                    >
-                      PRIMA SQUADRA
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      className="block w-full text-left px-4 py-2 hover:bg-blue-600"
-                    >
-                      UNDER 19
-                    </button>
-                  </li>
-                </ul>
-              )}
-            </li>
-            {/* Link CONTATTI per mobile */}
-            <li className="border-b border-white">
-              <button
-                onClick={() => {
-                  navigate("/contatti");
-                  setIsMobileMenuOpen(false);
-                }}
-                className="w-full text-left px-4 py-2 font-bold text-white hover:text-gray-300"
-              >
-                CONTATTI
+                ULTIME NEWS
               </button>
             </li>
           </ul>
-          {/* Icone social per mobile */}
-          <div className="flex justify-center gap-6 mt-4 pb-4">
-            <a
-              href="https://www.facebook.com/people/Oratorio-San-Vincenzo-c5/61565515795683/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-300"
-            >
-              <FaFacebook size={24} />
-            </a>
-            <a
-              href="https://www.instagram.com/oratorio_sanvincenzoc5/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-300"
-            >
-              <FaInstagram size={24} />
-            </a>
-            <a
-              href="https://www.youtube.com/@OratorioSanVincenzoC5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-300"
-            >
-              <FaYoutube size={24} />
-            </a>
-          </div>
-        </div>
-      )}
+        )}
+      </li>
+      {/* Link SPONSOR per mobile */}
+      <li className="border-b border-white">
+        <button
+          onClick={() => {
+            goToAnotherSection();
+            setIsMobileMenuOpen(false);
+          }}
+          className="w-full text-left px-4 py-2 font-bold text-white hover:text-black"
+        >
+          SPONSOR
+        </button>
+      </li>
+      {/* Link GALLERIA per mobile */}
+      <li className="border-b border-white">
+        <button
+          onClick={() => {
+            navigate("/galleria");
+            setIsMobileMenuOpen(false);
+          }}
+          className="w-full text-left px-4 py-2 font-bold text-white hover:text-black"
+        >
+          GALLERIA
+        </button>
+      </li>
+      {/* Menu SQUADRE per mobile */}
+      <li className="border-b border-white">
+        <button
+          className="w-full text-left px-4 py-2 font-bold text-white flex justify-between items-center hover:text-black"
+          onClick={() => setIsSquadreMobileDropdownOpen(!isSquadreMobileDropdownOpen)}
+        >
+          SQUADRE
+          <svg
+            className={`w-2.5 h-2.5 ml-1 transform ${isSquadreMobileDropdownOpen ? 'rotate-180' : ''}`}
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M1 1l4 4 4-4"
+            />
+          </svg>
+        </button>
+        {isSquadreMobileDropdownOpen && (
+          <ul className="bg-white text-blue-400">
+            <li className="border-b border-black">
+              <button
+                onClick={() => {
+                  navigate("/primasquadra");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+              >
+                PRIMA SQUADRA
+              </button>
+            </li>
+            <li className="border-b border-black">
+              <button className="block w-full text-left px-4 py-2 hover:bg-gray-200">
+                UNDER 19
+              </button>
+            </li>
+          </ul>
+        )}
+      </li>
+      {/* Link CONTATTI per mobile */}
+      <li className="border-b border-white">
+        <button
+          onClick={() => {
+            navigate("/contatti");
+            setIsMobileMenuOpen(false);
+          }}
+          className="w-full text-left px-4 py-2 font-bold text-white hover:text-black"
+        >
+          CONTATTI
+        </button>
+      </li>
+    </ul>
+    {/* Icone social per mobile */}
+    <div className="flex justify-center gap-6 mt-4 pb-4">
+      <a
+        href="https://www.facebook.com/people/Oratorio-San-Vincenzo-c5/61565515795683/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-white hover:text-gray-300"
+      >
+        <FaFacebook size={24} />
+      </a>
+      <a
+        href="https://www.instagram.com/oratorio_sanvincenzoc5/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-white hover:text-gray-300"
+      >
+        <FaInstagram size={24} />
+      </a>
+      <a
+        href="https://www.youtube.com/@OratorioSanVincenzoC5"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-white hover:text-gray-300"
+      >
+        <FaYoutube size={24} />
+      </a>
+    </div>
+  </div>
+)}
     </>
   );
 }
