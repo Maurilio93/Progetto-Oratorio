@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
     List,
     ListItem,
@@ -10,8 +9,7 @@ import {
 import { Navbar } from "./Navbar";
 
 export function PrimaSquadra() {
-    // Track the state of the Navbar (open or closed)
-    const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+
 
     // Array of players categorized by their roles
     const players = {
@@ -46,26 +44,19 @@ export function PrimaSquadra() {
     return (
         <Card className="flex flex-col justify-center items-center bg-white rounded-none p-4">
             <div className="flex items-center justify-center w-full max-w-4xl mt-2">
-                <Navbar setIsNavbarOpen={setIsNavbarOpen} />
-
-                {/* Title that moves down when the navbar is open */}
-                <h1
-                    className={`text-xl font-semibold my-10 text-blue-400 py-8 transition-all duration-300 ${
-                        isNavbarOpen ? "mt-24" : "mt-10"
-                    }`}
-                >
+                <Navbar></Navbar>
+                <h1 className="text-xl font-semibold my-10 text-blue-400 py-8">
                     PRIMA SQUADRA
                 </h1>
             </div>
-
             <List className="-mt-6 w-full max-w-4xl mx-auto">
                 {Object.entries(players).map(([category, playersList]) => {
                     // Mappa delle emoji per le categorie
                     const categoryEmojis = {
                         PORTIERI: '🧤',   // Emoji per portieri
                         DIFENSORI: '🛡️',  // Emoji per difensori
-                        LATERALI: '🏃',    // Emoji per ala
-                        PIVOTS: '⚽'       // Emoji per attaccanti/pivot
+                        LATERALI: '🏃',   // Emoji per ala
+                        PIVOTS: '⚽'      // Emoji per attaccanti/pivot
                     };
 
                     // Recupera l'emoji dalla mappa
@@ -93,14 +84,14 @@ export function PrimaSquadra() {
                                         <div className="text-left">
                                             <Typography
                                                 variant="h6"
-                                                color="blue-gray"
+                                                color="black"
                                                 className="text-sm md:text-base"
                                             >
                                                 {player.name}
                                             </Typography>
                                             <Typography
                                                 variant="small"
-                                                color="blue"
+                                                color="black"
                                                 className="font-semibold text-xs md:text-sm"
                                             >
                                                 {player.data}

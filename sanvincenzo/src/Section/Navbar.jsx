@@ -1,8 +1,9 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FaFacebook, FaInstagram, FaYoutube, FaBars } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-export function Navbar() {
+// eslint-disable-next-line react/prop-types
+export function Navbar({ setMenuHeight }) {
   const [isSocietaDropdownOpen, setIsSocietaDropdownOpen] = useState(false);
   const [isSquadreDropdownOpen, setIsSquadreDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,6 +13,19 @@ export function Navbar() {
 
   const societaTimeout = useRef(null);
   const squadreTimeout = useRef(null);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    // Verifica se setMenuHeight è una funzione prima di chiamarla
+    if (typeof setMenuHeight === 'function') {
+      if (isMobileMenuOpen && menuRef.current) {
+        const height = menuRef.current.offsetHeight;
+        setMenuHeight(height);
+      } else {
+        setMenuHeight(0);
+      }
+    }
+  }, [isMobileMenuOpen, setMenuHeight]);
 
   const handleMouseEnterSocieta = () => {
     clearTimeout(societaTimeout.current);
@@ -142,7 +156,6 @@ export function Navbar() {
                     </div>
                   )}
                 </li>
-                {/* Altri elementi del menu desktop... */}
                 {/* Link SPONSOR */}
                 <li>
                   <button
@@ -265,175 +278,178 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Menu Mobile - visibile solo se isMobileMenuOpen è true */}
-{isMobileMenuOpen && (
-  <div className="bg-blue-400 text-white fixed top-16 left-0 right-0 bottom-18 z-50">
-    <ul className="flex flex-col">
-      {/* Menu SOCIETÀ per mobile */}
-      <li className="border-b border-white">
-        <button
-          className="w-full text-left px-4 py-2 font-bold text-white flex justify-between items-center hover:text-black"
-          onClick={() => setIsSocietaMobileDropdownOpen(!isSocietaMobileDropdownOpen)}
+      {/* Menu Mobile */}
+      {isMobileMenuOpen && (
+        <div
+          ref={menuRef}
+          className="bg-blue-400 text-white fixed top-16 left-0 right-0 z-40"
         >
-          SOCIETÀ
-          <svg
-            className={`w-2.5 h-2.5 ml-1 transform ${isSocietaMobileDropdownOpen ? 'rotate-180' : ''}`}
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 10 6"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M1 1l4 4 4-4"
-            />
-          </svg>
-        </button>
-        {isSocietaMobileDropdownOpen && (
-          <ul className="bg-white text-blue-400">
-            <li className="border-b border-black">
-              <button className="block w-full text-left px-4 py-2 hover:bg-gray-200">
-                DIRIGENZA
+          <ul className="flex flex-col">
+            {/* Menu SOCIETÀ per mobile */}
+            <li className="border-b border-white">
+              <button
+                className="w-full text-left px-4 py-2 font-bold text-white flex justify-between items-center hover:text-black"
+                onClick={() => setIsSocietaMobileDropdownOpen(!isSocietaMobileDropdownOpen)}
+              >
+                SOCIETÀ
+                <svg
+                  className={`w-2.5 h-2.5 ml-1 transform ${isSocietaMobileDropdownOpen ? 'rotate-180' : ''}`}
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M1 1l4 4 4-4"
+                  />
+                </svg>
               </button>
+              {isSocietaMobileDropdownOpen && (
+                <ul className="bg-white text-blue-400">
+                  <li className="border-b border-black">
+                    <button className="block w-full text-left px-4 py-2 hover:bg-gray-200">
+                      DIRIGENZA
+                    </button>
+                  </li>
+                  <li className="border-b border-black">
+                    <button
+                      onClick={() => {
+                        navigate("/lanostrastoria");
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                    >
+                      LA NOSTRA STORIA
+                    </button>
+                  </li>
+                  <li className="border-b border-black">
+                    <button
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                      onClick={() => {
+                        goToSection();
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      ULTIME NEWS
+                    </button>
+                  </li>
+                </ul>
+              )}
             </li>
-            <li className="border-b border-black">
+            {/* Link SPONSOR per mobile */}
+            <li className="border-b border-white">
               <button
                 onClick={() => {
-                  navigate("/lanostrastoria");
+                  goToAnotherSection();
                   setIsMobileMenuOpen(false);
                 }}
-                className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                className="w-full text-left px-4 py-2 font-bold text-white hover:text-black"
               >
-                LA NOSTRA STORIA
+                SPONSOR
               </button>
             </li>
-            <li className="border-b border-black">
+            {/* Link GALLERIA per mobile */}
+            <li className="border-b border-white">
               <button
-                className="block w-full text-left px-4 py-2 hover:bg-gray-200"
                 onClick={() => {
-                  goToSection();
+                  navigate("/galleria");
                   setIsMobileMenuOpen(false);
                 }}
+                className="w-full text-left px-4 py-2 font-bold text-white hover:text-black"
               >
-                ULTIME NEWS
+                GALLERIA
+              </button>
+            </li>
+            {/* Menu SQUADRE per mobile */}
+            <li className="border-b border-white">
+              <button
+                className="w-full text-left px-4 py-2 font-bold text-white flex justify-between items-center hover:text-black"
+                onClick={() => setIsSquadreMobileDropdownOpen(!isSquadreMobileDropdownOpen)}
+              >
+                SQUADRE
+                <svg
+                  className={`w-2.5 h-2.5 ml-1 transform ${isSquadreMobileDropdownOpen ? 'rotate-180' : ''}`}
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M1 1l4 4 4-4"
+                  />
+                </svg>
+              </button>
+              {isSquadreMobileDropdownOpen && (
+                <ul className="bg-white text-blue-400">
+                  <li className="border-b border-black">
+                    <button
+                      onClick={() => {
+                        navigate("/primasquadra");
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                    >
+                      PRIMA SQUADRA
+                    </button>
+                  </li>
+                  <li className="border-b border-black">
+                    <button className="block w-full text-left px-4 py-2 hover:bg-gray-200">
+                      UNDER 19
+                    </button>
+                  </li>
+                </ul>
+              )}
+            </li>
+            {/* Link CONTATTI per mobile */}
+            <li className="border-b border-white">
+              <button
+                onClick={() => {
+                  navigate("/contatti");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="w-full text-left px-4 py-2 font-bold text-white hover:text-black"
+              >
+                CONTATTI
               </button>
             </li>
           </ul>
-        )}
-      </li>
-      {/* Link SPONSOR per mobile */}
-      <li className="border-b border-white">
-        <button
-          onClick={() => {
-            goToAnotherSection();
-            setIsMobileMenuOpen(false);
-          }}
-          className="w-full text-left px-4 py-2 font-bold text-white hover:text-black"
-        >
-          SPONSOR
-        </button>
-      </li>
-      {/* Link GALLERIA per mobile */}
-      <li className="border-b border-white">
-        <button
-          onClick={() => {
-            navigate("/galleria");
-            setIsMobileMenuOpen(false);
-          }}
-          className="w-full text-left px-4 py-2 font-bold text-white hover:text-black"
-        >
-          GALLERIA
-        </button>
-      </li>
-      {/* Menu SQUADRE per mobile */}
-      <li className="border-b border-white">
-        <button
-          className="w-full text-left px-4 py-2 font-bold text-white flex justify-between items-center hover:text-black"
-          onClick={() => setIsSquadreMobileDropdownOpen(!isSquadreMobileDropdownOpen)}
-        >
-          SQUADRE
-          <svg
-            className={`w-2.5 h-2.5 ml-1 transform ${isSquadreMobileDropdownOpen ? 'rotate-180' : ''}`}
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 10 6"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M1 1l4 4 4-4"
-            />
-          </svg>
-        </button>
-        {isSquadreMobileDropdownOpen && (
-          <ul className="bg-white text-blue-400">
-            <li className="border-b border-black">
-              <button
-                onClick={() => {
-                  navigate("/primasquadra");
-                  setIsMobileMenuOpen(false);
-                }}
-                className="block w-full text-left px-4 py-2 hover:bg-gray-200"
-              >
-                PRIMA SQUADRA
-              </button>
-            </li>
-            <li className="border-b border-black">
-              <button className="block w-full text-left px-4 py-2 hover:bg-gray-200">
-                UNDER 19
-              </button>
-            </li>
-          </ul>
-        )}
-      </li>
-      {/* Link CONTATTI per mobile */}
-      <li className="border-b border-white">
-        <button
-          onClick={() => {
-            navigate("/contatti");
-            setIsMobileMenuOpen(false);
-          }}
-          className="w-full text-left px-4 py-2 font-bold text-white hover:text-black"
-        >
-          CONTATTI
-        </button>
-      </li>
-    </ul>
-    {/* Icone social per mobile */}
-    <div className="flex justify-center gap-6 mt-4 pb-4">
-      <a
-        href="https://www.facebook.com/people/Oratorio-San-Vincenzo-c5/61565515795683/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-white hover:text-gray-300"
-      >
-        <FaFacebook size={24} />
-      </a>
-      <a
-        href="https://www.instagram.com/oratorio_sanvincenzoc5/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-white hover:text-gray-300"
-      >
-        <FaInstagram size={24} />
-      </a>
-      <a
-        href="https://www.youtube.com/@OratorioSanVincenzoC5"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-white hover:text-gray-300"
-      >
-        <FaYoutube size={24} />
-      </a>
-    </div>
-  </div>
-)}
+          {/* Icone social per mobile */}
+          <div className="flex justify-center gap-6 mt-4 pb-4">
+            <a
+              href="https://www.facebook.com/people/Oratorio-San-Vincenzo-c5/61565515795683/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300"
+            >
+              <FaFacebook size={24} />
+            </a>
+            <a
+              href="https://www.instagram.com/oratorio_sanvincenzoc5/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300"
+            >
+              <FaInstagram size={24} />
+            </a>
+            <a
+              href="https://www.youtube.com/@OratorioSanVincenzoC5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300"
+            >
+              <FaYoutube size={24} />
+            </a>
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -8,13 +8,13 @@ export function LaNostraStoria() {
 
       {/* Contenitore per titolo e logo centrati */}
       <div className="flex items-center justify-center mt-10 mb-8 md:mt-6">
-        <h2 className="text-lg md:text-2xl font-semibold text-blue-400 py-1 px-4 mr-8">
+        <h2 className="text-l -mx-8 md:text-2xl font-semibold text-blue-400 py-1 px-4 mr-8">
           LA NOSTRA STORIA
         </h2>
         <img
           src="images/IMG_6743.PNG" // Sostituisci con il percorso del logo
           alt="Logo Oratorio San Vincenzo"
-          className="w-20 h-20 md:w-24 md:h-24" // Dimensioni del logo
+          className="w-16 h-16 mt-2 md:w-24 md:h-24" // Dimensioni del logo
         />
       </div>
 

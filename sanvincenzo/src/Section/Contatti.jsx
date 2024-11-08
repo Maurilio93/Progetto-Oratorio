@@ -8,15 +8,14 @@ const TABLE_ROWS = {
     telefono: "+39 3791916667",
     coloriSociali: "Celeste - Bianco",
     regioneProv: "Sicilia - Palermo (PA)",
-    stadio: "Tre Stelle Via Inserra, Palermo",
+    stadio: "Tre Stelle Via Inserra 20, Palermo",
     info: "Partita in casa alle 18:45",
     sponsorTecnico: "Givova",
 };
 
 export function Contatti() {
-
     return (
-        <div className="flex flex-col gap-8 w-full p-4 bg-white my-8">
+        <div className="flex flex-col gap-2 w-full p-4 bg-white my-8 mx-auto max-w-3xl">
             {/* Sezione Tabella */}
             <section className="w-full flex flex-col items-center">
                 <div className="w-full flex flex-col items-center">
@@ -72,20 +71,20 @@ export function Contatti() {
             </section>
 
             {/* Sezione Dove Trovarci */}
-            <div className="w-full flex flex-col items-center" id="dove-siamo-section">
-                <h1 className="inline-block text-xl font-semibold my-6  text-blue-400 py-2 px-2 rounded-lg">
+            <div className="w-full flex flex-col items-center py-16" id="dove-siamo-section">
+                <h1 className="inline-block text-xl font-semibold my-6 text-blue-400 py-2 px-2 rounded-lg">
                     DOVE TROVARCI 📍
                 </h1>
                 <div className="relative pt-[56.25%] w-full max-w-2xl">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3137.707755040901!2d13.308546977246095!3d38.146987912009585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1319e92bb97179ab%3A0x53eaaa5d7dbe5c6f!2sTre%20Stelle%20Club!5e0!3m2!1sit!2sit!4v1730286032292!5m2!1sit!2sit"
-                        className="absolute top-0 left-0 w-full h-[400px] border-0 rounded-xl"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6274.126900117668!2d13.326833099999998!3d38.1619649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1319e8c27cbaa78d%3A0xae1c4c2897bb6c60!2sOratorio%20San%20Vincenzo!5e0!3m2!1sit!2sit!4v1731062106305!5m2!1sit!2sit"
+                        className="absolute top-0 left-0 w-full h-[400px] border-0 rounded-2xl py-6 -my-8"
                         allowFullScreen
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }
