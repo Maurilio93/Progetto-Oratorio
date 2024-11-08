@@ -259,7 +259,7 @@ export function Navbar() {
           {/* Bottone hamburger per dispositivi mobili */}
           <div className="md:hidden flex items-center">
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              <FaBars size={24} className="text-white" />
+              <FaBars size={24} className="text-white hover:text-black" />
             </button>
           </div>
         </div>

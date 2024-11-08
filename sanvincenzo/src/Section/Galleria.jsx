@@ -44,7 +44,7 @@ export function Galleria() {
             <div className="relative w-full max-w-4xl mx-auto">
                 <button
                     onClick={handlePrev}
-                    className="absolute top-1/2 -left-8 md:-left-20 transform -translate-y-1/2 bg-white text-blue-600 font-bold py-2 px-4 rounded-full shadow-md hover:bg-gray-200 z-10"
+                    className="absolute top-1/2 -left-2 md:-left-20 transform -translate-y-1/2 bg-white text-blue-600 font-bold py-2 px-4 rounded-full shadow-md hover:bg-gray-200 z-10"
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 12H4M4 12L10 6M4 12L10 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -61,7 +61,7 @@ export function Galleria() {
 
                 <button
                     onClick={handleNext}
-                    className="absolute top-1/2 -right-8 md:-right-20 transform -translate-y-1/2 bg-white text-blue-600 font-bold py-2 px-4 rounded-full shadow-md hover:bg-gray-200 z-10"
+                    className="absolute top-1/2 -right-2 md:-right-20 transform -translate-y-1/2 bg-white text-blue-600 font-bold py-2 px-4 rounded-full shadow-md hover:bg-gray-200 z-10"
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
