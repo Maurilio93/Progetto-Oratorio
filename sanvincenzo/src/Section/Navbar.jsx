@@ -2,13 +2,14 @@ import { useState, useRef, useEffect } from "react";
 import { FaFacebook, FaInstagram, FaYoutube, FaBars } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-// eslint-disable-next-line react/prop-types
 export function Navbar({ setMenuHeight }) {
   const [isSocietaDropdownOpen, setIsSocietaDropdownOpen] = useState(false);
   const [isSquadreDropdownOpen, setIsSquadreDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSocietaMobileDropdownOpen, setIsSocietaMobileDropdownOpen] = useState(false);
-  const [isSquadreMobileDropdownOpen, setIsSquadreMobileDropdownOpen] = useState(false);
+  const [isSocietaMobileDropdownOpen, setIsSocietaMobileDropdownOpen] =
+    useState(false);
+  const [isSquadreMobileDropdownOpen, setIsSquadreMobileDropdownOpen] =
+    useState(false);
   const navigate = useNavigate();
 
   const societaTimeout = useRef(null);
@@ -16,8 +17,7 @@ export function Navbar({ setMenuHeight }) {
   const menuRef = useRef(null);
 
   useEffect(() => {
-    // Verifica se setMenuHeight è una funzione prima di chiamarla
-    if (typeof setMenuHeight === 'function') {
+    if (typeof setMenuHeight === "function") {
       if (isMobileMenuOpen && menuRef.current) {
         const height = menuRef.current.offsetHeight;
         setMenuHeight(height);
@@ -50,31 +50,29 @@ export function Navbar({ setMenuHeight }) {
   };
 
   const goToSection = () => {
-    navigate('/#news-section');
+    navigate("/#news-section");
     setTimeout(() => {
-      const element = document.getElementById('news-section');
+      const element = document.getElementById("news-section");
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
   };
 
   const goToAnotherSection = () => {
-    navigate('/#sponsor-section');
+    navigate("/#sponsor-section");
     setTimeout(() => {
-      const element = document.getElementById('sponsor-section');
+      const element = document.getElementById("sponsor-section");
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
   };
 
   return (
     <>
-      {/* Navbar */}
       <header className="bg-blue-400 fixed top-0 left-0 right-0 z-50">
         <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 md:px-0">
-          {/* Logo e titolo a sinistra */}
           <div className="flex items-center gap-2 md:gap-4 justify-center md:-mx-12">
             <img
               src="images/IMG_6743.PNG"
@@ -83,19 +81,18 @@ export function Navbar({ setMenuHeight }) {
             />
             <button
               onClick={() => {
-                navigate('/');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                navigate("/");
+                window.scrollTo({ top: 0, behavior: "smooth" });
               }}
               className="text-white font-semibold text-l px-4 sm:text-xl md:text-base hover:text-black"
             >
               Oratorio San Vincenzo c5
             </button>
           </div>
-          {/* Menu di navigazione per desktop */}
+
           <div className="hidden md:flex items-center md:mx-10">
             <nav aria-label="Global">
               <ul className="flex gap-14 text-sm">
-                {/* Menu SOCIETÀ */}
                 <li
                   className="relative"
                   onMouseEnter={handleMouseEnterSocieta}
@@ -123,16 +120,10 @@ export function Navbar({ setMenuHeight }) {
                     </svg>
                   </button>
                   {isSocietaDropdownOpen && (
-                    <div
-                      className="absolute z-10 bg-white font-bold divide-y divide-gray-100 rounded-lg shadow w-44 left-1/2 transform -translate-x-1/2 mt-2"
-                      onMouseEnter={handleMouseEnterSocieta}
-                      onMouseLeave={handleMouseLeaveSocieta}
-                    >
+                    <div className="absolute z-10 bg-white font-bold divide-y divide-gray-100 rounded-lg shadow w-44 left-1/2 transform -translate-x-1/2 mt-2">
                       <ul className="py-2 text-sm text-blue-400">
                         <li>
-                          <button
-                            className="block px-4 py-2 hover:bg-gray-100 w-full"
-                          >
+                          <button className="block px-4 py-2 hover:bg-gray-100 w-full">
                             DIRIGENZA
                           </button>
                         </li>
@@ -156,7 +147,6 @@ export function Navbar({ setMenuHeight }) {
                     </div>
                   )}
                 </li>
-                {/* Link SPONSOR */}
                 <li>
                   <button
                     className="text-white font-bold transition hover:text-black"
@@ -165,7 +155,6 @@ export function Navbar({ setMenuHeight }) {
                     SPONSOR
                   </button>
                 </li>
-                {/* Link GALLERIA */}
                 <li>
                   <button
                     onClick={() => navigate("/galleria")}
@@ -174,7 +163,6 @@ export function Navbar({ setMenuHeight }) {
                     GALLERY
                   </button>
                 </li>
-                {/* Menu SQUADRE */}
                 <li
                   className="relative"
                   onMouseEnter={handleMouseEnterSquadre}
@@ -202,11 +190,7 @@ export function Navbar({ setMenuHeight }) {
                     </svg>
                   </button>
                   {isSquadreDropdownOpen && (
-                    <div
-                      className="absolute z-10 bg-white font-bold divide-y divide-gray-100 rounded-lg shadow w-44 left-1/2 transform -translate-x-1/2 mt-2"
-                      onMouseEnter={handleMouseEnterSquadre}
-                      onMouseLeave={handleMouseLeaveSquadre}
-                    >
+                    <div className="absolute z-10 bg-white font-bold divide-y divide-gray-100 rounded-lg shadow w-44 left-1/2 transform -translate-x-1/2 mt-2">
                       <ul className="py-2 text-sm text-blue-400">
                         <li>
                           <button
@@ -217,9 +201,7 @@ export function Navbar({ setMenuHeight }) {
                           </button>
                         </li>
                         <li>
-                          <button
-                            className="block px-4 py-2 hover:bg-gray-100 w-full"
-                          >
+                          <button className="block px-4 py-2 hover:bg-gray-100 w-full">
                             UNDER 19
                           </button>
                         </li>
@@ -227,12 +209,11 @@ export function Navbar({ setMenuHeight }) {
                     </div>
                   )}
                 </li>
-                {/* Link CONTATTI */}
                 <li>
                   <button
                     onClick={() => {
                       navigate("/contatti");
-                      window.scrollTo({ top: 0, behavior: 'auto' });
+                      window.scrollTo({ top: 0, behavior: "auto" });
                     }}
                     className="text-white font-bold transition hover:text-black"
                   >
@@ -242,7 +223,7 @@ export function Navbar({ setMenuHeight }) {
               </ul>
             </nav>
           </div>
-          {/* Icone social per desktop */}
+
           <div className="hidden md:flex items-center gap-6">
             <a
               href="https://www.facebook.com/people/Oratorio-San-Vincenzo-c5/61565515795683/"
@@ -269,7 +250,7 @@ export function Navbar({ setMenuHeight }) {
               <FaYoutube size={24} />
             </a>
           </div>
-          {/* Bottone hamburger per dispositivi mobili */}
+
           <div className="md:hidden flex items-center">
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               <FaBars size={24} className="text-white hover:text-black" />
@@ -278,22 +259,23 @@ export function Navbar({ setMenuHeight }) {
         </div>
       </header>
 
-      {/* Menu Mobile */}
       {isMobileMenuOpen && (
         <div
           ref={menuRef}
           className="bg-blue-400 text-white fixed top-16 left-0 right-0 z-40"
         >
           <ul className="flex flex-col">
-            {/* Menu SOCIETÀ per mobile */}
-            <li className="border-b border-white">
-              <button
-                className="w-full text-left px-4 py-2 font-bold text-white flex justify-between items-center hover:text-black"
-                onClick={() => setIsSocietaMobileDropdownOpen(!isSocietaMobileDropdownOpen)}
-              >
+            <li
+              className="border-b border-white"
+              onMouseEnter={() => setIsSocietaMobileDropdownOpen(true)}
+              onMouseLeave={() => setIsSocietaMobileDropdownOpen(false)}
+            >
+              <button className="w-full text-left px-4 py-2 font-bold flex items-center justify-between">
                 SOCIETÀ
                 <svg
-                  className={`w-2.5 h-2.5 ml-1 transform ${isSocietaMobileDropdownOpen ? 'rotate-180' : ''}`}
+                  className={`w-2.5 h-2.5 ml-1 transition-transform ${
+                    isSocietaMobileDropdownOpen ? "rotate-180" : ""
+                  }`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -309,30 +291,24 @@ export function Navbar({ setMenuHeight }) {
                 </svg>
               </button>
               {isSocietaMobileDropdownOpen && (
-                <ul className="bg-white text-blue-400">
-                  <li className="border-b border-black">
-                    <button className="block w-full text-left px-4 py-2 hover:bg-gray-200">
+                <ul className="pl-4 py-2 bg-white text-blue-300">
+                  <li>
+                    <button className="block px-4 py-2 hover:bg-gray-100 w-full border-b border-gray-500 text-left">
                       DIRIGENZA
                     </button>
                   </li>
-                  <li className="border-b border-black">
+                  <li>
                     <button
-                      onClick={() => {
-                        navigate("/lanostrastoria");
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                      onClick={() => navigate("/lanostrastoria")}
+                      className="block px-4 py-2 hover:bg-gray-100 w-full border-b border-gray-500 text-left"
                     >
                       LA NOSTRA STORIA
                     </button>
                   </li>
-                  <li className="border-b border-black">
+                  <li>
                     <button
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-200"
-                      onClick={() => {
-                        goToSection();
-                        setIsMobileMenuOpen(false);
-                      }}
+                      className="block px-4 py-2 hover:bg-gray-100 w-full text-left"
+                      onClick={goToSection}
                     >
                       ULTIME NEWS
                     </button>
@@ -340,39 +316,34 @@ export function Navbar({ setMenuHeight }) {
                 </ul>
               )}
             </li>
-            {/* Link SPONSOR per mobile */}
+
             <li className="border-b border-white">
               <button
-                onClick={() => {
-                  goToAnotherSection();
-                  setIsMobileMenuOpen(false);
-                }}
-                className="w-full text-left px-4 py-2 font-bold text-white hover:text-black"
+                className="w-full text-left px-4 py-2 font-bold"
+                onClick={goToAnotherSection}
               >
                 SPONSOR
               </button>
             </li>
-            {/* Link GALLERIA per mobile */}
             <li className="border-b border-white">
               <button
-                onClick={() => {
-                  navigate("/galleria");
-                  setIsMobileMenuOpen(false);
-                }}
-                className="w-full text-left px-4 py-2 font-bold text-white hover:text-black"
+                onClick={() => navigate("/galleria")}
+                className="w-full text-left px-4 py-2 font-bold"
               >
-                GALLERIA
+                GALLERY
               </button>
             </li>
-            {/* Menu SQUADRE per mobile */}
-            <li className="border-b border-white">
-              <button
-                className="w-full text-left px-4 py-2 font-bold text-white flex justify-between items-center hover:text-black"
-                onClick={() => setIsSquadreMobileDropdownOpen(!isSquadreMobileDropdownOpen)}
-              >
+            <li
+              className="border-b border-white"
+              onMouseEnter={() => setIsSquadreMobileDropdownOpen(true)}
+              onMouseLeave={() => setIsSquadreMobileDropdownOpen(false)}
+            >
+              <button className="w-full text-left px-4 py-2 font-bold flex items-center justify-between">
                 SQUADRE
                 <svg
-                  className={`w-2.5 h-2.5 ml-1 transform ${isSquadreMobileDropdownOpen ? 'rotate-180' : ''}`}
+                  className={`w-2.5 h-2.5 ml-1 transition-transform ${
+                    isSquadreMobileDropdownOpen ? "rotate-180" : ""
+                  }`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -388,34 +359,30 @@ export function Navbar({ setMenuHeight }) {
                 </svg>
               </button>
               {isSquadreMobileDropdownOpen && (
-                <ul className="bg-white text-blue-400">
-                  <li className="border-b border-black">
+                <ul className="pl-4 py-2 bg-white text-blue-300">
+                  <li>
                     <button
-                      onClick={() => {
-                        navigate("/primasquadra");
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                      onClick={() => navigate("/primasquadra")}
+                      className="block px-4 py-2 hover:bg-gray-100 w-full border-b border-gray-500 text-left"
                     >
                       PRIMA SQUADRA
                     </button>
                   </li>
-                  <li className="border-b border-black">
-                    <button className="block w-full text-left px-4 py-2 hover:bg-gray-200">
+                  <li>
+                    <button className="block px-4 py-2 hover:bg-gray-100 w-full text-left">
                       UNDER 19
                     </button>
                   </li>
                 </ul>
               )}
             </li>
-            {/* Link CONTATTI per mobile */}
             <li className="border-b border-white">
               <button
                 onClick={() => {
                   navigate("/contatti");
-                  setIsMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: "auto" });
                 }}
-                className="w-full text-left px-4 py-2 font-bold text-white hover:text-black"
+                className="w-full text-left px-4 py-2 font-bold"
               >
                 CONTATTI
               </button>
