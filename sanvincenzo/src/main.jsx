@@ -13,6 +13,7 @@ import { Risultati } from './Section/Risultati.jsx';
 import { Galleria } from './Section/Galleria.jsx';
 import { LaNostraStoria } from './Section/LaNostraStoria.jsx';
 import { PrimaSquadra } from './Section/PrimaSquadra.jsx';
+import { Under19 } from './Section/Under19.jsx';
 
 
 
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
   {
     path: "/primasquadra",
     element: <PrimaSquadra />
+  },
+  {
+    path: "/under19",
+    element: <Under19 />
   }
 ]);
 

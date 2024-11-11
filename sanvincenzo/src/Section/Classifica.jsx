@@ -14,7 +14,7 @@ export function Classifica() {
             </div>
 
             {/* Widget Classifica */}
-            <div className="flex justify-center items-center bg-white p-2 rounded-lg shadow-2xl mt-6 w-full max-w-2xl mb-6">
+            <div className="flex justify-center items-center bg-white p-2 rounded-lg shadow-2xl -mt-6 w-full max-w-2xl mb-6">
                 <iframe
                     src="https://www.tuttocampo.it/WidgetV2/Classifica/30018696-716a-4194-a931-e7547a88ff56"
                     loading="lazy"
