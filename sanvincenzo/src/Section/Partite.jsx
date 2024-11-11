@@ -10,13 +10,14 @@ export function Partite() {
                         <Typography variant="h5" className="text-center mb-4 text-blue-400">
                             ULTIMA PARTITA
                         </Typography>
-                        <div className="flex justify-center">
+                        <div className="iframe-container" style={{ width: '100%', height: '350px' }}>
                             <iframe
                                 src="https://www.tuttocampo.it/WidgetV2/Partita/30018696-716a-4194-a931-e7547a88ff56"
                                 width="100%"
                                 height="350"
                                 loading="lazy"
                                 className="w-full"
+                                scrolling="no"
                             ></iframe>
                         </div>
                     </CardBody>
@@ -28,13 +29,14 @@ export function Partite() {
                         <Typography variant="h5" className="text-center mb-4 text-blue-400">
                             PROSSIMA PARTITA
                         </Typography>
-                        <div className="flex justify-center">
+                        <div className="iframe-container" style={{ width: '100%', height: '350px' }}>
                             <iframe
                                 src="https://www.tuttocampo.it/WidgetV2/ProssimaPartita/30018696-716a-4194-a931-e7547a88ff56"
                                 width="100%"
                                 height="350"
                                 loading="lazy"
                                 className="w-full"
+                                scrolling="no"
                             ></iframe>
                         </div>
                     </CardBody>

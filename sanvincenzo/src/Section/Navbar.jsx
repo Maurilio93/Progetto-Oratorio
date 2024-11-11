@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { FaFacebook, FaInstagram, FaYoutube, FaBars } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
+// eslint-disable-next-line react/prop-types
 export function Navbar({ setMenuHeight }) {
   const [isSocietaDropdownOpen, setIsSocietaDropdownOpen] = useState(false);
   const [isSquadreDropdownOpen, setIsSquadreDropdownOpen] = useState(false);
@@ -129,7 +130,10 @@ export function Navbar({ setMenuHeight }) {
                         </li>
                         <li>
                           <button
-                            onClick={() => navigate("/lanostrastoria")}
+                            onClick={() => {
+                              navigate("/lanostrastoria");
+                              window.scrollTo({ top: 0, behavior: 'auto' });
+                            }}
                             className="block px-4 py-2 hover:bg-gray-100 w-full"
                           >
                             LA NOSTRA STORIA
@@ -190,7 +194,7 @@ export function Navbar({ setMenuHeight }) {
                     </svg>
                   </button>
                   {isSquadreDropdownOpen && (
-                    <div className="absolute z-10 bg-white font-bold divide-y divide-gray-100 rounded-lg shadow w-44 left-1/2 transform -translate-x-1/2 mt-2">
+                    <div className="absolute z-10 bg-white font-bold divide-y-2 divide-gray-100 rounded-lg shadow w-44 left-1/2 transform -translate-x-1/2 mt-2">
                       <ul className="py-2 text-sm text-blue-400">
                         <li>
                           <button
@@ -291,7 +295,7 @@ export function Navbar({ setMenuHeight }) {
                 </svg>
               </button>
               {isSocietaMobileDropdownOpen && (
-                <ul className="pl-4 py-2 bg-white text-blue-300">
+                <ul className="bg-white text-blue-300">
                   <li>
                     <button className="block px-4 py-2 hover:bg-gray-100 w-full border-b border-gray-500 text-left">
                       DIRIGENZA
@@ -359,7 +363,7 @@ export function Navbar({ setMenuHeight }) {
                 </svg>
               </button>
               {isSquadreMobileDropdownOpen && (
-                <ul className="pl-4 py-2 bg-white text-blue-300">
+                <ul className="bg-white text-blue-300">
                   <li>
                     <button
                       onClick={() => navigate("/primasquadra")}
