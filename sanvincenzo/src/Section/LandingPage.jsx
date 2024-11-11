@@ -29,6 +29,13 @@ export function LandingPage() {
 
   return (
     <>
+      <style>
+        {`
+          .absolute.bottom-4.left-2\\/4.z-50.flex {
+            display: none !important;
+          }
+        `}
+      </style>
       <Navbar setMenuHeight={setMenuHeight} />
 
       <div
@@ -39,7 +46,8 @@ export function LandingPage() {
           <div className="flex flex-col justify-center items-center mt-0 md:mt-0">
             <Carousel
               transition={{ duration: 0.5 }}
-              className="rounded-l h-64 md:h-screen w-full"
+              className="rounded-l h-64 md:h-screen w-full "
+
             >
               <img
                 src="images/WhatsApp Image 2024-10-29 at 16.37.06.jpeg"
