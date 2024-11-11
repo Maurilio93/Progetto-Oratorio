@@ -17,6 +17,7 @@ export function Navbar({ setMenuHeight }) {
   const squadreTimeout = useRef(null);
   const menuRef = useRef(null);
 
+
   useEffect(() => {
     if (typeof setMenuHeight === "function") {
       if (isMobileMenuOpen && menuRef.current) {
@@ -51,23 +52,25 @@ export function Navbar({ setMenuHeight }) {
   };
 
   const goToSection = () => {
+    setIsMobileMenuOpen(false); // Chiudi il menu mobile
     navigate("/#news-section");
     setTimeout(() => {
       const element = document.getElementById("news-section");
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
-    }, 100);
+    }, 400);
   };
 
   const goToAnotherSection = () => {
+    setIsMobileMenuOpen(false); // Chiudi il menu mobile
     navigate("/#sponsor-section");
     setTimeout(() => {
       const element = document.getElementById("sponsor-section");
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
-    }, 100);
+    }, 400);
   };
 
   return (
@@ -93,7 +96,7 @@ export function Navbar({ setMenuHeight }) {
 
           <div className="hidden md:flex items-center md:mx-10">
             <nav aria-label="Global">
-              <ul className="flex gap-14 text-sm">
+              <ul className="flex gap-16 text-sm"> {/* Riduci il gap per rendere i pulsanti più compatti */}
                 <li
                   className="relative"
                   onMouseEnter={handleMouseEnterSocieta}
@@ -131,18 +134,28 @@ export function Navbar({ setMenuHeight }) {
                         <li>
                           <button
                             onClick={() => {
+                              setIsMobileMenuOpen(false);
                               navigate("/lanostrastoria");
                               window.scrollTo({ top: 0, behavior: 'auto' });
                             }}
-                            className="block px-4 py-2 hover:bg-gray-100 w-full"
+                            className="block px-4 py-2 hover:bg-gray-100 w-full border-gray-500 text-left"
                           >
                             LA NOSTRA STORIA
                           </button>
                         </li>
                         <li>
                           <button
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              navigate("/#news-section");
+                              setTimeout(() => {
+                                const element = document.getElementById("news-section");
+                                if (element) {
+                                  element.scrollIntoView({ behavior: "smooth" });
+                                }
+                              }, 100);
+                            }}
                             className="block px-4 py-2 hover:bg-gray-100 w-full"
-                            onClick={goToSection}
                           >
                             ULTIME NEWS
                           </button>
@@ -151,6 +164,7 @@ export function Navbar({ setMenuHeight }) {
                     </div>
                   )}
                 </li>
+
                 <li>
                   <button
                     className="text-white font-bold transition hover:text-black"
@@ -159,14 +173,20 @@ export function Navbar({ setMenuHeight }) {
                     SPONSOR
                   </button>
                 </li>
+
                 <li>
                   <button
-                    onClick={() => navigate("/galleria")}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false); // Chiudi il menu mobile
+                      navigate("/galleria");
+                      window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll verso l'alto
+                    }}
                     className="text-white font-bold transition hover:text-black"
                   >
                     GALLERY
                   </button>
                 </li>
+
                 <li
                   className="relative"
                   onMouseEnter={handleMouseEnterSquadre}
@@ -198,14 +218,23 @@ export function Navbar({ setMenuHeight }) {
                       <ul className="py-2 text-sm text-blue-400">
                         <li>
                           <button
-                            onClick={() => navigate("/primasquadra")}
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              navigate("/primasquadra");
+                            }}
                             className="block px-4 py-2 hover:bg-gray-100 w-full"
                           >
                             PRIMA SQUADRA
                           </button>
                         </li>
                         <li>
-                          <button className="block px-4 py-2 hover:bg-gray-100 w-full">
+                          <button
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              navigate("/primasquadra");
+                            }}
+                            className="block px-4 py-2 hover:bg-gray-100 w-full"
+                          >
                             UNDER 19
                           </button>
                         </li>
@@ -213,9 +242,11 @@ export function Navbar({ setMenuHeight }) {
                     </div>
                   )}
                 </li>
+
                 <li>
                   <button
                     onClick={() => {
+                      setIsMobileMenuOpen(false);
                       navigate("/contatti");
                       window.scrollTo({ top: 0, behavior: "auto" });
                     }}
@@ -227,6 +258,7 @@ export function Navbar({ setMenuHeight }) {
               </ul>
             </nav>
           </div>
+
 
           <div className="hidden md:flex items-center gap-6">
             <a
@@ -277,9 +309,8 @@ export function Navbar({ setMenuHeight }) {
               <button className="w-full text-left px-4 py-2 font-bold flex items-center justify-between">
                 SOCIETÀ
                 <svg
-                  className={`w-2.5 h-2.5 ml-1 transition-transform ${
-                    isSocietaMobileDropdownOpen ? "rotate-180" : ""
-                  }`}
+                  className={`w-2.5 h-2.5 ml-1 transition-transform ${isSocietaMobileDropdownOpen ? "rotate-180" : ""
+                    }`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -345,9 +376,8 @@ export function Navbar({ setMenuHeight }) {
               <button className="w-full text-left px-4 py-2 font-bold flex items-center justify-between">
                 SQUADRE
                 <svg
-                  className={`w-2.5 h-2.5 ml-1 transition-transform ${
-                    isSquadreMobileDropdownOpen ? "rotate-180" : ""
-                  }`}
+                  className={`w-2.5 h-2.5 ml-1 transition-transform ${isSquadreMobileDropdownOpen ? "rotate-180" : ""
+                    }`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -366,8 +396,12 @@ export function Navbar({ setMenuHeight }) {
                 <ul className="bg-white text-blue-300">
                   <li>
                     <button
-                      onClick={() => navigate("/primasquadra")}
-                      className="block px-4 py-2 hover:bg-gray-100 w-full border-b border-gray-500 text-left"
+                      onClick={() => {
+                        setIsMobileMenuOpen(false); // Chiudi il menu mobile
+                        navigate("/primasquadra");
+                        window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll verso l'alto
+                      }}
+                      className="block px-4 py-2 border-b border-gray-500 hover:bg-gray-100 w-full text-left"
                     >
                       PRIMA SQUADRA
                     </button>
