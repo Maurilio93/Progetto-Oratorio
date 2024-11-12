@@ -75,25 +75,25 @@ export function Navbar({ setMenuHeight }) {
   return (
     <>
       <header className="bg-blue-400 fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 md:px-0">
-          <div className="flex items-center gap-2 md:gap-4 justify-center md:-mx-12">
+        <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-0">
+          <div className="flex items-center gap-2 lg:gap-4 justify-center lg:-mx-12">
             <img
               src="images/IMG_6743.PNG"
               alt="Logo"
-              className="h-14 w-14 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-xl"
+              className="h-14 w-14 sm:h-12 sm:w-12 lg:h-14 lg:w-14 rounded-xl"
             />
             <button
               onClick={() => {
                 navigate("/");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="text-white font-semibold text-l px-4 sm:text-xl md:text-base hover:text-black"
+              className="text-white font-semibold text-l px-4 sm:text-xl lg:text-base hover:text-black"
             >
               Oratorio San Vincenzo c5
             </button>
           </div>
 
-          <div className="hidden md:flex items-center md:mx-10">
+          <div className="hidden lg:flex items-center lg:mx-10">
             <nav aria-label="Global">
               <ul className="flex gap-16 text-sm">
                 <li
@@ -251,7 +251,7 @@ export function Navbar({ setMenuHeight }) {
             </nav>
           </div>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6">
             <a
               href="https://www.facebook.com/people/Oratorio-San-Vincenzo-c5/61565515795683/"
               target="_blank"
@@ -278,7 +278,7 @@ export function Navbar({ setMenuHeight }) {
             </a>
           </div>
 
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               <FaBars size={24} className="text-white hover:text-black" />
             </button>
@@ -294,14 +294,18 @@ export function Navbar({ setMenuHeight }) {
           <ul className="flex flex-col">
             <li
               className="border-b border-white"
-              onMouseEnter={() => setIsSocietaMobileDropdownOpen(true)}
-              onMouseLeave={() => setIsSocietaMobileDropdownOpen(false)}
+              onClick={() =>
+                setIsSocietaMobileDropdownOpen(
+                  (prevState) => !prevState
+                )
+              }
             >
               <button className="w-full text-left px-4 py-2 font-bold flex items-center justify-between">
                 SOCIETÀ
                 <svg
-                  className={`w-2.5 h-2.5 ml-1 transition-transform ${isSocietaMobileDropdownOpen ? "rotate-180" : ""
-                    }`}
+                  className={`w-2.5 h-2.5 ml-1 transition-transform ${
+                    isSocietaMobileDropdownOpen ? "rotate-180" : ""
+                  }`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -371,14 +375,18 @@ export function Navbar({ setMenuHeight }) {
 
             <li
               className="border-b border-white"
-              onMouseEnter={() => setIsSquadreMobileDropdownOpen(true)}
-              onMouseLeave={() => setIsSquadreMobileDropdownOpen(false)}
+              onClick={() =>
+                setIsSquadreMobileDropdownOpen(
+                  (prevState) => !prevState
+                )
+              }
             >
               <button className="w-full text-left px-4 py-2 font-bold flex items-center justify-between">
                 SQUADRE
                 <svg
-                  className={`w-2.5 h-2.5 ml-1 transition-transform ${isSquadreMobileDropdownOpen ? "rotate-180" : ""
-                    }`}
+                  className={`w-2.5 h-2.5 ml-1 transition-transform ${
+                    isSquadreMobileDropdownOpen ? "rotate-180" : ""
+                  }`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

@@ -46,7 +46,7 @@ export function LandingPage() {
           <div className="flex flex-col justify-center items-center mt-0 md:mt-0">
             <Carousel
               transition={{ duration: 0.5 }}
-              className="rounded-l h-64 md:h-screen w-full "
+              className="h-64 md:h-screen w-full "
 
             >
               <img
@@ -99,7 +99,7 @@ export function LandingPage() {
           <p className="text-center text-2xl font-semibold my-12 text-black py-2 px-6">
             ULTIME NEWS
           </p>
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-32 mt-6">
+          <div className="grid grid-cols-1 gap-12 mt-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-32">
             <Card className="w-64 h-56 mx-auto shadow-2xl">
               <CardHeader color="blue-gray" className="relative h-32">
                 <img
@@ -122,8 +122,7 @@ export function LandingPage() {
                     navigate("/classifica");
                     window.scrollTo(0, 0);
                   }}
-                >
-                </Button>
+                ></Button>
               </CardFooter>
             </Card>
 
@@ -149,8 +148,7 @@ export function LandingPage() {
                     navigate("/marcatori");
                     window.scrollTo(0, 0);
                   }}
-                >
-                </Button>
+                ></Button>
               </CardFooter>
             </Card>
 
@@ -176,12 +174,12 @@ export function LandingPage() {
                     navigate("/risultati");
                     window.scrollTo(0, 0);
                   }}
-                >
-                </Button>
+                ></Button>
               </CardFooter>
             </Card>
           </div>
         </div>
+
 
         <footer className="bg-blue-400 text-center py-4">
           <p className="text-black">

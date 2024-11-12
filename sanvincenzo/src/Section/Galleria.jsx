@@ -18,6 +18,10 @@ export function Galleria() {
         { imgelink: "images/gallery14.png" },
         { imgelink: "images/gallery15.png" },
         { imgelink: "images/gallery16.png" },
+        { imgelink: "images/IMG_6859.jpg" },
+        { imgelink: "images/IMG_6862.jpg" },
+        { imgelink: "images/IMG_6863.jpg" },
+        { imgelink: "images/IMG_6864.jpg" },
     ];
 
     const [activeIndex, setActiveIndex] = React.useState(0);
@@ -37,33 +41,33 @@ export function Galleria() {
             <div className="flex flex-col items-center justify-center w-full max-w-4xl mt-16">
                 <Navbar />
 
-                {/* Titolo GALLERY con frecce accanto solo su mobile */}
-                <div className="flex items-center justify-center space-x-20 md:hidden">
+                {/* Contenitore del titolo e delle frecce */}
+                <div className="flex items-center justify-center space-x-20 lg:space-x-0">
+                    {/* Freccia sinistra accanto al titolo, visibile solo su mobile e tablet */}
                     <button
                         onClick={handlePrev}
-                        className="bg-white text-blue-600 font-bold p-2 rounded-full shadow-md hover:bg-gray-200"
+                        className="lg:hidden bg-white text-blue-600 font-bold p-2 rounded-full shadow-md hover:bg-gray-200"
                     >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M20 12H4M4 12L10 6M4 12L10 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </button>
-                    <h1 className="text-xl font-semibold text-blue-400 text-center">
+
+                    {/* Titolo "GALLERY" visibile su tutte le risoluzioni */}
+                    <h1 className="text-xl md:text-2xl font-semibold text-blue-400">
                         GALLERY
                     </h1>
+
+                    {/* Freccia destra accanto al titolo, visibile solo su mobile e tablet */}
                     <button
                         onClick={handleNext}
-                        className="bg-white text-blue-600 font-bold p-2 rounded-full shadow-md hover:bg-gray-200"
+                        className="lg:hidden bg-white text-blue-600 font-bold p-2 rounded-full shadow-md hover:bg-gray-200"
                     >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </button>
                 </div>
-
-                {/* Titolo GALLERY su desktop */}
-                <h1 className="hidden md:block text-2xl font-semibold text-blue-400 text-center my-6">
-                    GALLERY
-                </h1>
             </div>
 
             {/* Immagine principale con frecce ai lati solo su desktop */}
@@ -71,7 +75,7 @@ export function Galleria() {
                 {/* Freccia sinistra accanto all'immagine principale (solo desktop) */}
                 <button
                     onClick={handlePrev}
-                    className="hidden md:block absolute top-1/2 -left-24 transform -translate-y-1/2 bg-white text-blue-600 font-bold py-3 px-4 rounded-full shadow-md hover:bg-gray-200 z-10"
+                    className="hidden lg:block absolute top-1/2 -left-24 transform -translate-y-1/2 bg-white text-blue-600 font-bold py-3 px-4 rounded-full shadow-md hover:bg-gray-200 z-10"
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 12H4M4 12L10 6M4 12L10 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -89,7 +93,7 @@ export function Galleria() {
                 {/* Freccia destra accanto all'immagine principale (solo desktop) */}
                 <button
                     onClick={handleNext}
-                    className="hidden md:block absolute top-1/2 -right-24 transform -translate-y-1/2 bg-white text-blue-600 font-bold py-3 px-4 rounded-full shadow-md hover:bg-gray-200 z-10"
+                    className="hidden lg:block absolute top-1/2 -right-24 transform -translate-y-1/2 bg-white text-blue-600 font-bold py-3 px-4 rounded-full shadow-md hover:bg-gray-200 z-10"
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -98,20 +102,20 @@ export function Galleria() {
             </div>
 
             {/* Thumbnails */}
-            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-12 gap-4 mt-4">
+            <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-8 gap-4 mt-4">
                 {data.map(({ imgelink }, index) => (
                     <div key={index} className="flex justify-center">
                         <img
                             onClick={() => setActiveIndex(index)}
                             src={imgelink}
-                            className={`h-20 sm:h-24 md:h-20 max-w-full cursor-pointer rounded-lg object-cover object-center transition-all duration-200 ease-in-out transform hover:scale-105 ${
-                                index === activeIndex ? "border-4 border-blue-600" : ""
-                            }`}
+                            className={`h-[120px] max-w-full cursor-pointer rounded-lg object-cover object-center transition-all duration-200 ease-in-out transform hover:scale-105 ${index === activeIndex ? "border-4 border-blue-600" : ""
+                                }`}
                             alt={`gallery-image-${index}`}
                         />
                     </div>
                 ))}
             </div>
+
         </div>
     );
 }
