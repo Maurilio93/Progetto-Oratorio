@@ -451,7 +451,7 @@ export function Navbar({ setMenuHeight }) {
               href="https://www.facebook.com/people/Oratorio-San-Vincenzo-c5/61565515795683/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-gray-300"
+              className="text-black hover:text-white"
             >
               <FaFacebook size={24} />
             </a>
@@ -459,7 +459,7 @@ export function Navbar({ setMenuHeight }) {
               href="https://www.instagram.com/oratorio_sanvincenzoc5/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-gray-300"
+              className="text-black hover:text-white"
             >
               <FaInstagram size={24} />
             </a>
@@ -467,7 +467,7 @@ export function Navbar({ setMenuHeight }) {
               href="https://www.youtube.com/@OratorioSanVincenzoC5"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-gray-300"
+              className="text-black hover:text-white"
             >
               <FaYoutube size={24} />
             </a>
