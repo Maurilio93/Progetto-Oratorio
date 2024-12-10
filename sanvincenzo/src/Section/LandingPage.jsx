@@ -1,124 +1,193 @@
-import { useState } from 'react';
-import { FaFacebook, FaInstagram } from 'react-icons/fa';
+// LandingPage.jsx
+import { useState } from "react";
+import { Carousel } from "@material-tailwind/react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+} from "@material-tailwind/react";
+import { Button } from "../MyComponents/Section/Button";
+import { useNavigate } from "react-router-dom";
+import { Partite } from "./Partite";
+import { Navbar } from "./Navbar";
 
 export function LandingPage() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const [menuHeight, setMenuHeight] = useState(0);
 
-    return (
-        <header className="bg-blue-400">
-            <div className="max-w-screen-xl ml-4">
-                <div className="flex h-16 items-center justify-between">
-                    {/* Logo e Titolo allineati a sinistra */}
-                    <div className="flex items-center gap-4">
-                        <img
-                            src="/images/images.jpeg"
-                            alt="Logo"
-                            className="h-14 rounded-xl"
-                        />
-                        <h4 className="text-white font-semibold">Sito Ufficiale Oratorio San Vincenzo</h4>
-                    </div>
-                    {/* Menu di navigazione */}
-                    <div className="hidden md:block ml-12">
-                        <nav aria-label="Global">
-                            <ul className="flex gap-12 text-sm pr-40">
-                                <li>
-                                    <a className="text-black font-bold transition hover:text-white" href="#">
-                                        Società
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="text-black font-bold transition hover:text-white" href="#">
-                                        Calendario
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="text-black font-bold transition hover:text-white" href="#">
-                                        Galleria
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="text-black font-bold transition hover:text-white" href="#">
-                                        News
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="text-black font-bold transition hover:text-white" href="#">
-                                        Contatti
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+  const data = [
+    { imageLink: "images/sponsor1.png" },
+    { imageLink: "images/sponsor2.png" },
+    { imageLink: "images/sponsor3.png" },
+    { imageLink: "images/sponsor4.png" },
+    { imageLink: "images/sponsor5.png" },
+    { imageLink: "images/sponsor6.png" },
+    { imageLink: "images/sponsor7.png" },
+    { imageLink: "images/sponsor 8.png" },
+  ];
 
-                    {/* Icone Social */}
-                    <div className="flex items-center gap-4">
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300">
-                            <FaFacebook size={24} />
-                        </a>
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-300">
-                            <FaInstagram size={24} />
-                        </a>
-                    </div>
+  return (
+    <>
+      <style>
+        {`
+          .absolute.bottom-4.left-2\\/4.z-50.flex {
+            display: none !important;
+          }
+        `}
+      </style>
+      <Navbar setMenuHeight={setMenuHeight} />
 
-                    {/* Menu Hamburger per mobile */}
-                    <div className="flex items-center gap-4">
-                        <div className="block md:hidden">
-                            <button
-                                className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                                </svg>
-                            </button>
-                        </div>
+      <div
+        className="bg-white pt-16 transition-all duration-300"
+        style={{ marginTop: menuHeight }}
+      >
+        <div className="flex flex-col justify-center items-center md:mt-0">
+          <div className="flex flex-col justify-center items-center mt-0 md:mt-0">
+            <Carousel
+              transition={{ duration: 0.5 }}
+              className="h-64 md:h-screen w-full "
 
-                        {/* Menu mobile */}
-                        {isMenuOpen && (
-                            <div className="absolute top-16 left-0 w-full bg-blue-400 md:hidden">
-                                <nav aria-label="Mobile menu">
-                                    <ul className="flex flex-col items-center gap-4 p-4">
-                                        <li>
-                                            <a className="text-black font-bold transition hover:text-gray-500/75" href="#">
-                                                Società
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
-                                                Calendario
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
-                                                Galleria
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
-                                                News
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
-                                                Contatti
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </div>
-        </header>
-    );
+            >
+              <img
+                src="images/WhatsApp Image 2024-10-29 at 16.37.06.jpeg"
+                alt="image 1"
+                className="h-full w-full object-cover"
+              />
+              <img
+                src="images/gallery12.png"
+                alt="image 2"
+                className="h-full w-full object-cover"
+              />
+              <img
+                src="images/gallery8.png"
+                alt="image 3"
+                className="h-full w-full object-cover"
+              />
+            </Carousel>
+          </div>
+        </div>
+
+        <div className="flex justify-center items-center gap-6 mt-6">
+          <Partite />
+        </div>
+
+        {/* Sponsor Section */}
+        <div
+          className="flex flex-col items-center my-6"
+          id="sponsor-section"
+          style={{ scrollMarginTop: "70px" }}
+        >
+          <p className="text-center text-2xl font-semibold my-12  text-black py-2 px-6 ">
+            I NOSTRI SPONSOR
+          </p>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 mr-3 ml-3 md:flex flex-row">
+            {data.map(({ imageLink }, index) => (
+              <div key={index}>
+                <img
+                  className="h-44 w-44 rounded-lg object-cover object-center shadow-2xl"
+                  src={imageLink}
+                  alt="gallery-photo"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* News Section */}
+        <div className="flex flex-col items-center my-8 py-6" id="news-section">
+          <p className="text-center text-2xl font-semibold my-12 text-black py-2 px-6">
+            ULTIME NEWS
+          </p>
+          <div className="grid grid-cols-1 gap-12 mt-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-32">
+            <Card className="w-64 h-56 mx-auto shadow-2xl">
+              <CardHeader color="blue-gray" className="relative h-32">
+                <img
+                  src="images/traffico-web.png"
+                  alt="card-image"
+                  className="w-full h-full object-cover"
+                />
+              </CardHeader>
+              <CardBody className="overflow-hidden">
+                <Typography
+                  variant="h5"
+                  color="blue-gray"
+                  className="text-center text-sm"
+                ></Typography>
+              </CardBody>
+              <CardFooter className="pt-0 text-center">
+                <Button
+                  text="CLASSIFICA"
+                  onClick={() => {
+                    navigate("/classifica");
+                    window.scrollTo(0, 0);
+                  }}
+                ></Button>
+              </CardFooter>
+            </Card>
+
+            <Card className="w-64 h-56 mx-auto shadow-2xl">
+              <CardHeader color="blue-gray" className="relative h-32">
+                <img
+                  src="images/topscorer-default-site-img.jpg"
+                  alt="card-image"
+                  className="w-full h-full object-cover"
+                />
+              </CardHeader>
+              <CardBody className="overflow-hidden">
+                <Typography
+                  variant="h5"
+                  color="blue-gray"
+                  className="text-center text-sm"
+                ></Typography>
+              </CardBody>
+              <CardFooter className="pt-0 text-center">
+                <Button
+                  text="MARCATORI"
+                  onClick={() => {
+                    navigate("/marcatori");
+                    window.scrollTo(0, 0);
+                  }}
+                ></Button>
+              </CardFooter>
+            </Card>
+
+            <Card className="w-64 h-56 mx-auto shadow-2xl">
+              <CardHeader color="blue-gray" className="relative h-32">
+                <img
+                  src="images/cover_bet-to-correct-score-1280x640-min-752x440.jpg"
+                  alt="card-image"
+                  className="w-full h-full object-cover"
+                />
+              </CardHeader>
+              <CardBody className="overflow-hidden">
+                <Typography
+                  variant="h5"
+                  color="blue-gray"
+                  className="text-center text-sm"
+                ></Typography>
+              </CardBody>
+              <CardFooter className="pt-0 text-center">
+                <Button
+                  text="RISULTATI"
+                  onClick={() => {
+                    navigate("/risultati");
+                    window.scrollTo(0, 0);
+                  }}
+                ></Button>
+              </CardFooter>
+            </Card>
+          </div>
+        </div>
+
+
+        <footer className="bg-blue-400 text-center py-4">
+          <p className="text-black">
+            &copy; {new Date().getFullYear()} Tutti i diritti riservati.
+          </p>
+        </footer>
+      </div>
+    </>
+  );
 }
-
-
