@@ -126,11 +126,6 @@ export function Navbar({ setMenuHeight }) {
                     <div className="absolute z-10 bg-white font-bold divide-y divide-gray-100 rounded-lg shadow w-44 left-1/2 transform -translate-x-1/2 mt-2">
                       <ul className="py-2 text-sm text-blue-400">
                         <li>
-                          <button className="block px-4 py-2 hover:bg-gray-100 w-full">
-                            DIRIGENZA
-                          </button>
-                        </li>
-                        <li>
                           <button
                             onClick={() => {
                               setIsMobileMenuOpen(false);

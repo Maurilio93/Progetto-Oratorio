@@ -25,6 +25,7 @@ export function LandingPage() {
     { imageLink: "images/sponsor5.png" },
     { imageLink: "images/sponsor6.png" },
     { imageLink: "images/sponsor7.png" },
+    { imageLink: "images/sponsor 8.png" },
   ];
 
   return (
