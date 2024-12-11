@@ -14,8 +14,6 @@ export function Galleria() {
         { imgelink: "images/gallery10.png" },
         { imgelink: "images/gallery11.png" },
         { imgelink: "images/gallery12.png" },
-        { imgelink: "images/gallery13.png" },
-        { imgelink: "images/gallery14.png" },
         { imgelink: "images/gallery15.png" },
         { imgelink: "images/gallery16.png" },
         { imgelink: "images/IMG_6859.jpg" },
