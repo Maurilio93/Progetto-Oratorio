@@ -318,11 +318,6 @@ export function Navbar({ setMenuHeight }) {
               {isSocietaMobileDropdownOpen && (
                 <ul className="bg-white text-blue-300">
                   <li>
-                    <button className="block px-4 py-2 hover:bg-gray-100 w-full border-b border-gray-500 text-left">
-                      DIRIGENZA
-                    </button>
-                  </li>
-                  <li>
                     <button
                       onClick={() => {
                         setIsMobileMenuOpen(false);
