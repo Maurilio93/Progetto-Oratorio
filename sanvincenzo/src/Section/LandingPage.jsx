@@ -84,7 +84,7 @@ export function LandingPage() {
           <p className="text-center text-3xl font-semibold my-12  text-black py-2 px-6 ">
             I NOSTRI SPONSOR
           </p>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 mr-3 ml-3 md:flex flex-row">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 mr-3 ml-3 md:flex flex-row">
             {data.map(({ imageLink }, index) => (
               <div key={index}>
                 <img

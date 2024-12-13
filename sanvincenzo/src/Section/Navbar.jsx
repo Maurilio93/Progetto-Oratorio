@@ -98,7 +98,7 @@ export function Navbar({ setMenuHeight }) {
                 navigate("/");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="text-white font-semibold text-l px-4 sm:text-xl lg:text-lg hover:text-black"
+              className="text-white font-semibold text-xl px-4 sm:text-xl lg:text-lg hover:text-black"
             >
               Oratorio San Vincenzo c5
             </button>
