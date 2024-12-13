@@ -7,7 +7,11 @@ export default withMT({
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Oswald', 'sans-serif'], // Sostituisci "sans" con il tuo font
+      },
+    },
   },
   plugins: [],
 });

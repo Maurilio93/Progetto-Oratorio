@@ -2,10 +2,10 @@ import { Card, CardBody, Typography } from "@material-tailwind/react";
 
 export function Partite() {
     return (
-        <div className="flex justify-center items-center min-h-screen bg-blue-400 px-4 rounded-xl lg:px-64">
+        <div className="flex justify-center items-center min-h-screen px-4 rounded-xl lg:px-64">
            <div className="flex flex-col md:flex-row gap-6 w-full max-w-7xl space-y-6 md:space-y-0 md:space-x-6">
                 {/* Ultima partita */}
-                <Card className="w-full shadow-lg">
+                <Card className="w-full rounded-lg shadow-lg shadow-blue-400 bg-gray-200">
                     <CardBody>
                         <Typography variant="h5" className="text-center mb-4 text-blue-400">
                             ULTIMA PARTITA
@@ -24,7 +24,7 @@ export function Partite() {
                 </Card>
 
                 {/* Prossima partita */}
-                <Card className="w-full shadow-lg">
+                <Card className="w-full rounded-lg shadow-lg shadow-blue-400 bg-gray-200">
                     <CardBody>
                         <Typography variant="h5" className="text-center mb-4 text-blue-400">
                             PROSSIMA PARTITA

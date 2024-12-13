@@ -72,6 +72,17 @@ export function Navbar({ setMenuHeight }) {
     }, 400);
   };
 
+  const goToResultSection = () => {
+    setIsMobileMenuOpen(false);
+    navigate("/#result-section");
+    setTimeout(() => {
+      const element = document.getElementById("result-section");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 400);
+  };
+
   return (
     <>
       <header className="bg-blue-400 fixed top-0 left-0 right-0 z-50">
@@ -87,7 +98,7 @@ export function Navbar({ setMenuHeight }) {
                 navigate("/");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="text-white font-semibold text-l px-4 sm:text-xl lg:text-base hover:text-black"
+              className="text-white font-semibold text-l px-4 sm:text-xl lg:text-lg hover:text-black"
             >
               Oratorio San Vincenzo c5
             </button>
@@ -95,7 +106,7 @@ export function Navbar({ setMenuHeight }) {
 
           <div className="hidden lg:flex items-center lg:mx-10">
             <nav aria-label="Global">
-              <ul className="flex gap-16 text-sm">
+              <ul className="flex gap-16 text-md">
                 <li
                   className="relative"
                   onMouseEnter={handleMouseEnterSocieta}
@@ -132,7 +143,7 @@ export function Navbar({ setMenuHeight }) {
                               navigate("/lanostrastoria");
                               window.scrollTo({ top: 0, behavior: "smooth" });
                             }}
-                            className="block px-4 py-2 hover:bg-gray-100 w-full border-gray-500 text-left"
+                            className="block px-4 py-2 hover:bg-gray-100 w-full border-gray-500"
                           >
                             LA NOSTRA STORIA
                           </button>
@@ -143,6 +154,14 @@ export function Navbar({ setMenuHeight }) {
                             className="block px-4 py-2 hover:bg-gray-100 w-full"
                           >
                             ULTIME NEWS
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            onClick={goToResultSection}
+                            className="block px-4 py-2 hover:bg-gray-100 w-full"
+                          >
+                            RISULTATI
                           </button>
                         </li>
                       </ul>
@@ -298,9 +317,8 @@ export function Navbar({ setMenuHeight }) {
               <button className="w-full text-left px-4 py-2 font-bold flex items-center justify-between">
                 SOCIETÀ
                 <svg
-                  className={`w-2.5 h-2.5 ml-1 transition-transform ${
-                    isSocietaMobileDropdownOpen ? "rotate-180" : ""
-                  }`}
+                  className={`w-2.5 h-2.5 ml-1 transition-transform ${isSocietaMobileDropdownOpen ? "rotate-180" : ""
+                    }`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -332,9 +350,17 @@ export function Navbar({ setMenuHeight }) {
                   <li>
                     <button
                       onClick={goToSection}
-                      className="block px-4 py-2 hover:bg-gray-100 w-full text-left"
+                      className="block px-4 py-2 hover:bg-gray-100 w-full text-left border-b border-gray-500"
                     >
                       ULTIME NEWS
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={goToResultSection}
+                      className="block px-4 py-2 hover:bg-gray-100 w-full text-left"
+                    >
+                      RISULTATI
                     </button>
                   </li>
                 </ul>
@@ -374,9 +400,8 @@ export function Navbar({ setMenuHeight }) {
               <button className="w-full text-left px-4 py-2 font-bold flex items-center justify-between">
                 SQUADRE
                 <svg
-                  className={`w-2.5 h-2.5 ml-1 transition-transform ${
-                    isSquadreMobileDropdownOpen ? "rotate-180" : ""
-                  }`}
+                  className={`w-2.5 h-2.5 ml-1 transition-transform ${isSquadreMobileDropdownOpen ? "rotate-180" : ""
+                    }`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

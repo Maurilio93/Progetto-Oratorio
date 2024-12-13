@@ -69,7 +69,9 @@ export function LandingPage() {
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-6 mt-6">
+        <div className="flex flex-col items-center my-6"
+          id="result-section"
+          style={{ scrollMarginTop: "70px" }}>
           <Partite />
         </div>
 
@@ -79,14 +81,14 @@ export function LandingPage() {
           id="sponsor-section"
           style={{ scrollMarginTop: "70px" }}
         >
-          <p className="text-center text-2xl font-semibold my-12  text-black py-2 px-6 ">
+          <p className="text-center text-3xl font-semibold my-12  text-black py-2 px-6 ">
             I NOSTRI SPONSOR
           </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 mr-3 ml-3 md:flex flex-row">
             {data.map(({ imageLink }, index) => (
               <div key={index}>
                 <img
-                  className="h-44 w-44 rounded-lg object-cover object-center shadow-2xl"
+                  className="h-44 w-44 rounded-lg object-cover object-center shadow-sm shadow-blue-400"
                   src={imageLink}
                   alt="gallery-photo"
                 />
@@ -97,11 +99,11 @@ export function LandingPage() {
 
         {/* News Section */}
         <div className="flex flex-col items-center my-8 py-6" id="news-section">
-          <p className="text-center text-2xl font-semibold my-12 text-black py-2 px-6">
+          <p className="text-center text-3xl font-semibold my-12 text-black py-2 px-6">
             ULTIME NEWS
           </p>
-          <div className="grid grid-cols-1 gap-12 mt-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-32">
-            <Card className="w-64 h-56 mx-auto shadow-2xl">
+          <div className="grid grid-cols-1 gap-20 mt-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-32">
+            <Card className="w-64 h-56 mx-auto shadow-md shadow-blue-400">
               <CardHeader color="blue-gray" className="relative h-32">
                 <img
                   src="images/traffico-web.png"
@@ -127,7 +129,7 @@ export function LandingPage() {
               </CardFooter>
             </Card>
 
-            <Card className="w-64 h-56 mx-auto shadow-2xl">
+            <Card className="w-64 h-56 mx-auto shadow-md shadow-blue-400">
               <CardHeader color="blue-gray" className="relative h-32">
                 <img
                   src="images/topscorer-default-site-img.jpg"
@@ -153,7 +155,7 @@ export function LandingPage() {
               </CardFooter>
             </Card>
 
-            <Card className="w-64 h-56 mx-auto shadow-2xl">
+            <Card className="w-64 h-56 mx-auto shadow-md shadow-blue-400">
               <CardHeader color="blue-gray" className="relative h-32">
                 <img
                   src="images/cover_bet-to-correct-score-1280x640-min-752x440.jpg"
