@@ -7,8 +7,8 @@ export function LaNostraStoria() {
       <Navbar></Navbar>
 
       {/* Contenitore per titolo e logo centrati */}
-      <div className="flex items-center justify-center mt-10 mb-8 md:mt-6">
-        <h2 className="text-l -mx-8 md:text-2xl font-semibold text-blue-400 py-1 px-4 mr-8">
+      <div className="flex items-center justify-center mt-10 mb-4 md:mt-6">
+        <h2 className="text-xl -mx-8 md:text-2xl font-semibold text-blue-400 py-1 ml-8 px-6 mr-2">
           LA NOSTRA STORIA
         </h2>
         <img
