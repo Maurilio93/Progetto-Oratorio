@@ -14,8 +14,8 @@ export function Under19() {
     // Array of players categorized by their roles
     const players = {
         PORTIERI: [
-            { name: "PRESTIGIACOMO UMBERTO (1)", avatar: "images/2348811.png" },
-            { name: "RICCARDO BONURA (1)", avatar: "images/2348811.png" },
+            { name: "PRESTIGIACOMO UMBERTO (1)", avatar: "images/soccer-player.png" },
+            { name: "RICCARDO BONURA (1)", avatar: "images/soccer-player.png" },
         ],
         DIFENSORI: [
             { name: "CARMELO GIULIO CICERO (4)", avatar: "images/2348811.png" },

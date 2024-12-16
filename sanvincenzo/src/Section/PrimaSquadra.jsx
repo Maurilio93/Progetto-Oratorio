@@ -14,9 +14,9 @@ export function PrimaSquadra() {
     // Array of players categorized by their roles
     const players = {
         PORTIERI: [
-            { name: "PRESTIGIACOMO UMBERTO (1)", avatar: "images/2348811.png" },
-            { name: "GABRIELE D'AQUILA (12)", avatar: "images/2348811.png" },
-            { name: "FLORIDIA PIETRO (22)", avatar: "images/2348811.png" },
+            { name: "PRESTIGIACOMO UMBERTO (1)", avatar: "images/soccer-player.png" },
+            { name: "GABRIELE D'AQUILA (12)", avatar: "images/soccer-player.png" },
+            { name: "FLORIDIA PIETRO (22)", avatar: "images/soccer-player.png" },
         ],
         DIFENSORI: [
             { name: "PARISI ROBERTO (5)", avatar: "images/2348811.png" },

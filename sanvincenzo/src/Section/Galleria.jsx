@@ -20,6 +20,9 @@ export function Galleria() {
         { imgelink: "images/IMG_6862.jpg" },
         { imgelink: "images/IMG_6863.jpg" },
         { imgelink: "images/IMG_6864.jpg" },
+        { imgelink: "images/IMG_7037.jpg" },
+        { imgelink: "images/IMG_7038.jpg" },
+        { imgelink: "images/IMG_7065.jpg" },
     ];
 
     const [activeIndex, setActiveIndex] = React.useState(0);
