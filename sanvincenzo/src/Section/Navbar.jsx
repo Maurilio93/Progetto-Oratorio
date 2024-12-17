@@ -18,7 +18,6 @@ export function Navbar({ setMenuHeight }) {
   const squadreTimeout = useRef(null);
   const menuRef = useRef(null);
 
-
   useEffect(() => {
     if (typeof setMenuHeight === "function") {
       if (isMobileMenuOpen && menuRef.current) {
@@ -52,19 +51,13 @@ export function Navbar({ setMenuHeight }) {
     }, 300);
   };
 
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
   const goToSection = () => {
     setIsMobileMenuOpen(false);
     navigate("/#news-section");
     setTimeout(() => {
       const element = document.getElementById("news-section");
       if (element) {
-        if (isSafari) {
-          element.scrollIntoView(); // Fallback: Scroll istantaneo per Safari
-        } else {
-          element.scrollIntoView({ behavior: "smooth" }); // Smooth scroll per altri browser
-        }
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }, 400);
   };
@@ -75,11 +68,7 @@ export function Navbar({ setMenuHeight }) {
     setTimeout(() => {
       const element = document.getElementById("sponsor-section");
       if (element) {
-        if (isSafari) {
-          element.scrollIntoView(); // Fallback: Scroll istantaneo per Safari
-        } else {
-          element.scrollIntoView({ behavior: "smooth" }); // Smooth scroll per altri browser
-        }
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }, 400);
   };
@@ -90,15 +79,10 @@ export function Navbar({ setMenuHeight }) {
     setTimeout(() => {
       const element = document.getElementById("result-section");
       if (element) {
-        if (isSafari) {
-          element.scrollIntoView(); // Fallback: Scroll istantaneo per Safari
-        } else {
-          element.scrollIntoView({ behavior: "smooth" }); // Smooth scroll per altri browser
-        }
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }, 400);
   };
-
 
   return (
     <>
