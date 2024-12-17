@@ -55,7 +55,7 @@ const router = createBrowserRouter([
     element: <Under19 />
   }
 ]);
-
+console.log("Smooth Scroll Polyfill Loaded");
 smoothscroll.polyfill();
 
 createRoot(document.getElementById('root')).render(
