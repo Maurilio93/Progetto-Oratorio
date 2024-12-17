@@ -50,30 +50,43 @@ export function Navbar({ setMenuHeight }) {
     }, 300);
   };
 
-  const scrollToSection = (sectionId) => {
+  const goToSection = () => {
     setIsMobileMenuOpen(false);
-    navigate(`/#${sectionId}`);
+    navigate("/#news-section");
     setTimeout(() => {
-      const element = document.getElementById(sectionId);
+      const element = document.getElementById("news-section");
       if (element) {
-        const navbarHeight = 64; // Altezza della navbar fissa
-        window.scrollTo({
-          top: element.offsetTop - navbarHeight,
-          behavior: "smooth",
-        });
+        element.scrollIntoView({ behavior: "smooth" });
       }
-    }, 300);
+    }, 400);
   };
 
-  // Chiamata specifica per ogni sezione
-  const goToSection = () => scrollToSection("news-section");
-  const goToAnotherSection = () => scrollToSection("sponsor-section");
-  const goToResultSection = () => scrollToSection("result-section");
+  const goToAnotherSection = () => {
+    setIsMobileMenuOpen(false);
+    navigate("/#sponsor-section");
+    setTimeout(() => {
+      const element = document.getElementById("sponsor-section");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 400);
+  };
+
+  const goToResultSection = () => {
+    setIsMobileMenuOpen(false);
+    navigate("/#result-section");
+    setTimeout(() => {
+      const element = document.getElementById("result-section");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 400);
+  };
 
   return (
     <>
-      <header className="bg-blue-400 fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-8 pc:mr-10 pc:ml-14">
+      <header className="bg-blue-400 fixed top-0 left-0 w-full z-50 shadow-md pt-[env(safe-area-inset-top)]">
+        <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-8 pc:mr-10 pc:ml-14 pt-[env(safe-area-inset-top)]">
           <div className="flex items-center gap-2 lg:gap-2">
             <img
               src="images/IMG_6743.PNG"
