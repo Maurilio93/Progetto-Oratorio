@@ -85,8 +85,8 @@ export function Navbar({ setMenuHeight }) {
 
   return (
     <>
-      <header className="bg-blue-400 fixed top-0 left-0 w-full z-50 shadow-md pt-[env(safe-area-inset-top)]">
-        <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-8 pc:mr-10 pc:ml-14 pt-[env(safe-area-inset-top)]">
+      <header className="bg-blue-400 fixed top-0 left-0 right-0 z-50">
+        <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-8 pc:mr-10 pc:ml-14">
           <div className="flex items-center gap-2 lg:gap-2">
             <img
               src="images/IMG_6743.PNG"
