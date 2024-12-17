@@ -14,7 +14,7 @@ import { Galleria } from './Section/Galleria.jsx';
 import { LaNostraStoria } from './Section/LaNostraStoria.jsx';
 import { PrimaSquadra } from './Section/PrimaSquadra.jsx';
 import { Under19 } from './Section/Under19.jsx';
-
+import smoothscroll from "smoothscroll-polyfill";
 
 
 const router = createBrowserRouter([
@@ -55,6 +55,8 @@ const router = createBrowserRouter([
     element: <Under19 />
   }
 ]);
+
+smoothscroll.polyfill();
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

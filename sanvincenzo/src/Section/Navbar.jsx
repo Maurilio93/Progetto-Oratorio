@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { FaFacebook, FaInstagram, FaYoutube, FaBars } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
+
 // eslint-disable-next-line react/prop-types
 export function Navbar({ setMenuHeight }) {
   const [isSocietaDropdownOpen, setIsSocietaDropdownOpen] = useState(false);
@@ -16,6 +17,7 @@ export function Navbar({ setMenuHeight }) {
   const societaTimeout = useRef(null);
   const squadreTimeout = useRef(null);
   const menuRef = useRef(null);
+
 
   useEffect(() => {
     if (typeof setMenuHeight === "function") {
