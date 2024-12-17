@@ -84,7 +84,7 @@ export function LandingPage() {
           <p className="text-center text-3xl font-semibold my-12  text-black py-2 px-6 ">
             I NOSTRI SPONSOR
           </p>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 mr-3 ml-3 md:flex flex-row">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 mr-3 ml-3 md:grid lg:grid pc:grid-cols-8">
             {data.map(({ imageLink }, index) => (
               <div key={index}>
                 <img
@@ -102,7 +102,7 @@ export function LandingPage() {
           <p className="text-center text-3xl font-semibold my-12 text-black py-2 px-6">
             ULTIME NEWS
           </p>
-          <div className="grid grid-cols-1 gap-20 mt-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-32">
+          <div className="grid grid-cols-1 gap-20 mt-6 md:grid-cols-2 lg:grid-cols-2 lg:gap-32 pc:grid-cols-3">
             <Card className="w-64 h-56 mx-auto shadow-md shadow-blue-400">
               <CardHeader color="blue-gray" className="relative h-32">
                 <img

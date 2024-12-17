@@ -50,48 +50,35 @@ export function Navbar({ setMenuHeight }) {
     }, 300);
   };
 
-  const goToSection = () => {
+  const scrollToSection = (sectionId) => {
     setIsMobileMenuOpen(false);
-    navigate("/#news-section");
+    navigate(`/#${sectionId}`);
     setTimeout(() => {
-      const element = document.getElementById("news-section");
+      const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        const navbarHeight = 64; // Altezza della navbar fissa
+        window.scrollTo({
+          top: element.offsetTop - navbarHeight,
+          behavior: "smooth",
+        });
       }
-    }, 400);
+    }, 300);
   };
 
-  const goToAnotherSection = () => {
-    setIsMobileMenuOpen(false);
-    navigate("/#sponsor-section");
-    setTimeout(() => {
-      const element = document.getElementById("sponsor-section");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 400);
-  };
-
-  const goToResultSection = () => {
-    setIsMobileMenuOpen(false);
-    navigate("/#result-section");
-    setTimeout(() => {
-      const element = document.getElementById("result-section");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 400);
-  };
+  // Chiamata specifica per ogni sezione
+  const goToSection = () => scrollToSection("news-section");
+  const goToAnotherSection = () => scrollToSection("sponsor-section");
+  const goToResultSection = () => scrollToSection("result-section");
 
   return (
     <>
       <header className="bg-blue-400 fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-0">
-          <div className="flex items-center gap-2 lg:gap-4 justify-center lg:-mx-12">
+        <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-8 pc:mr-10 pc:ml-14">
+          <div className="flex items-center gap-2 lg:gap-2">
             <img
               src="images/IMG_6743.PNG"
               alt="Logo"
-              className="h-14 w-14 sm:h-12 sm:w-12 lg:h-14 lg:w-14 rounded-xl"
+              className="h-14 w-14 sm:h-12 sm:w-12 lg:h-14 lg:w-14 rounded-xl pc:-ml-14"
             />
             <button
               onClick={() => {
@@ -104,7 +91,7 @@ export function Navbar({ setMenuHeight }) {
             </button>
           </div>
 
-          <div className="hidden lg:flex items-center lg:mx-10">
+          <div className="hidden pc:flex items-center lg:hidden pc:-ml-10">
             <nav aria-label="Global">
               <ul className="flex gap-16 text-md">
                 <li
@@ -265,7 +252,7 @@ export function Navbar({ setMenuHeight }) {
             </nav>
           </div>
 
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:hidden pc:flex items-center gap-6">
             <a
               href="https://www.facebook.com/people/Oratorio-San-Vincenzo-c5/61565515795683/"
               target="_blank"
@@ -292,7 +279,7 @@ export function Navbar({ setMenuHeight }) {
             </a>
           </div>
 
-          <div className="lg:hidden flex items-center">
+          <div className="lg:block pc:hidden flex items-center">
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               <FaBars size={24} className="text-white hover:text-black" />
             </button>
