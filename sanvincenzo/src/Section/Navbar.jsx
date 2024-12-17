@@ -50,45 +50,15 @@ export function Navbar({ setMenuHeight }) {
       setIsSquadreDropdownOpen(false);
     }, 300);
   };
-  
-  const smoothScrollTo = (targetId) => {
-    const element = document.getElementById(targetId);
-    if (!element) return;
-
-    const startPosition = window.pageYOffset;
-    const targetPosition = element.getBoundingClientRect().top + startPosition;
-    const duration = 600; // Durata totale in millisecondi
-    let startTime = null;
-
-    // Funzione di easing: curva di accelerazione
-    const easeInOutCubic = (t) => {
-      return t < 0.5
-        ? 4 * t * t * t
-        : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    };
-
-    // Funzione di animazione
-    const animation = (currentTime) => {
-      if (!startTime) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-      const easing = easeInOutCubic(progress);
-
-      window.scrollTo(0, startPosition + (targetPosition - startPosition) * easing);
-
-      if (timeElapsed < duration) {
-        requestAnimationFrame(animation);
-      }
-    };
-
-    requestAnimationFrame(animation);
-  };
 
   const goToSection = () => {
     setIsMobileMenuOpen(false);
     navigate("/#news-section");
     setTimeout(() => {
-      smoothScrollTo("news-section");
+      const element = document.getElementById("news-section");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }, 400);
   };
 
@@ -96,7 +66,10 @@ export function Navbar({ setMenuHeight }) {
     setIsMobileMenuOpen(false);
     navigate("/#sponsor-section");
     setTimeout(() => {
-      smoothScrollTo("sponsor-section");
+      const element = document.getElementById("sponsor-section");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }, 400);
   };
 
@@ -104,7 +77,10 @@ export function Navbar({ setMenuHeight }) {
     setIsMobileMenuOpen(false);
     navigate("/#result-section");
     setTimeout(() => {
-      smoothScrollTo("result-section");
+      const element = document.getElementById("result-section");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }, 400);
   };
 
