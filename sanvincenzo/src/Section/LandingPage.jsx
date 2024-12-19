@@ -12,6 +12,7 @@ import { Button } from "../MyComponents/Section/Button";
 import { useNavigate } from "react-router-dom";
 import { Partite } from "./Partite";
 import { Navbar } from "./Navbar";
+import { Helmet } from "react-helmet";
 
 export function LandingPage() {
   const navigate = useNavigate();
@@ -30,6 +31,12 @@ export function LandingPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Home | Oratorio San Vincenzo</title>
+        <meta name="description" content="Benvenuti all'Oratorio San Vincenzo! Scopri le nostre attività, eventi sportivi e molto altro." />
+        <meta name="keywords" content="oratorio, San Vincenzo, home, eventi, sport, comunità" />
+      </Helmet>
+      <h1 className="sr-only">Benvenuti all&apos;Oratorio San Vincenzo</h1>
       <style>
         {`
           .absolute.bottom-4.left-2\\/4.z-50.flex {

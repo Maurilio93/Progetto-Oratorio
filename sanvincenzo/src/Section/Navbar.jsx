@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { FaFacebook, FaInstagram, FaYoutube, FaBars } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 // eslint-disable-next-line react/prop-types
@@ -86,6 +87,18 @@ export function Navbar({ setMenuHeight }) {
 
   return (
     <>
+      <Helmet>
+        <title>Chi Siamo | Oratorio San Vincenzo</title>
+        <meta
+          name="description"
+          content="Scopri di più sull'Oratorio San Vincenzo: la nostra missione, i valori e la comunità."
+        />
+        <meta
+          name="keywords"
+          content="chi siamo, Oratorio San Vincenzo, missione, valori, comunità"
+        />
+      </Helmet>
+      <h1 className="sr-only">Chi Siamo</h1> 
       <header className="bg-blue-400 fixed top-0 left-0 right-0 z-50">
         <div className="max-w-screen-xl mx-auto flex items-center justify-between h-16 px-4 lg:px-8 pc:mr-10 pc:ml-14">
           <div className="flex items-center gap-2 lg:gap-2">
